@@ -23,12 +23,10 @@ being driven by artificial intelligence.
 
 ## Instructors
 
-[Chase Coleman](https://github.com/cc7768) 
-Chase Coleman received his PhD in Economics from New York University in May
-2019. He is a co-founder and Managing Director of Valorum Data. He was an early
-contributor at QuantEcon and has given lectures and workshops on Python,
-Julia, and other open source computational tools at institutions and
-  universities all around the world.
+[Chase Coleman](https://github.com/cc7768) is a lecturer in computational
+economics at Rice University. He was an early contributor at QuantEcon and has
+given lectures and workshops on Python, Julia, and other open source
+computational tools at institutions and universities all around the world.
 
 [John Stachurski](https://johnstachurski.net/) is a mathematical and
 computational economist current based at Kyoto University who works on
