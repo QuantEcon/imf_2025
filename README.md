@@ -22,8 +22,13 @@ Python foundations and more emphasis on AI.
 We will assume that attendees are familiar with the basics of (a) Python  and
 (b) Jupyter notebooks.
 
-Those who lack such foundations but wish to attend should read the first three
+Those who lack such foundations but wish to attend should read the following
 lectures in the [QuantEcon Python Programming lecture series](https://python-programming.quantecon.org/intro.html).
+
+* https://python-programming.quantecon.org/getting_started.html
+* https://python-programming.quantecon.org/python_by_example.html
+
+(Those who have time will benefit from reading the next few lectures as well.)
 
 If you do not have access to a local install, you can run these lectures by
 clicking the "play" icon top right, selecting Colab, and clicking on "Launch
