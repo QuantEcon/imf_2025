@@ -23,7 +23,7 @@ We will assume that attendees are familiar with the basics of (a) Python  and
 (b) Jupyter notebooks.
 
 Those who lack such foundations but wish to attend should read the following
-lectures in the [QuantEcon Python Programming lecture series](https://python-programming.quantecon.org/intro.html).
+lectures in the QuantEcon Python Programming lecture series.
 
 * https://python-programming.quantecon.org/getting_started.html
 * https://python-programming.quantecon.org/python_by_example.html
