@@ -8,11 +8,26 @@ Open source scientific computing environments built around the Python
 programming language have expanded rapidly in recent years. They now form the
 dominant paradigm in artificial intelligence and many fields within the natural
 sciences.  Economists can greatly enhance their modeling and data processing
-capabilities by exploiting Python's scientific ecosystem.  This course will
-cover the foundations of Python programming and Python scientific libraries, as
-well as discussing their use for economic policy applications. In addition, the
-course will discuss new developments in the Python scientific ecosystem
-being driven by artificial intelligence.
+capabilities by exploiting Python's latest scientific ecosystem.  This course
+will cover the Python scientific libraries, including new developments driven by
+artificial intelligence.  We will discuss their use for policy applications,
+with a slight bias towards modeling and macroeconomics.
+
+Relative to the course we ran at the IMF in 2024, there will be less emphasis on
+Python foundations and more emphasis on AI.
+
+
+## Prerequisites
+
+We will assume that attendees are familiar with the basics of (a) Python  and
+(b) Jupyter notebooks.
+
+Those who lack such foundations but wish to attend should read the first three
+lectures in the [QuantEcon Python Programming lecture series](https://python-programming.quantecon.org/intro.html).
+
+If you do not have access to a local install, you can run these lectures by
+clicking the "play" icon top right, selecting Colab, and clicking on "Launch
+Notebook".
 
 
 ## Times and Dates
@@ -41,41 +56,16 @@ Operations Research.  In 2016 he co-founded QuantEcon with Thomas J. Sargent.
 
 * Monday morning: Introduction 
   - TBA
-* Monday afternoon: Python basics
+* Monday afternoon: Scientific Python
   - TBA
-* Tuesday morning: Markov models in Python
+* Tuesday morning: Search and household problems I
   - TBA
-* Tuesday afternoon: Dynamic programming
+* Tuesday afternoon: Search and household problems II
   - TBA
-* Wednesday morning: Heterogeneous agents
+* Wednesday morning: Introduction to deep learning
   - TBA
-* Wednesday afternoon: Further applications
+* Wednesday afternoon: Reinforcement learning
   - TBA
 
 
 
-## Software
-
-The main interface to Python will be either `jupyter-notebook` or `jupyter-lab`.
-
-Access to the `ipython` REPL will also be useful.
-
-Some work will be done remotely using Google Colab --- a Google account is
-required.
-
-Required Python libraries (much of which is found in the Anaconda Python distribution):
-
-* `numpy`
-* `scipy`
-* `matplotlib`
-* `pandas`
-* `scikit-learn`
-* `statsmodels`
-* `numba`
-* `f2py`
-* `quantecon`
-
-## Useful References
-
-* https://www.anaconda.com/download
-* https://github.com/google/jax/issues/13684 (for JS)
