@@ -39,7 +39,8 @@ Notebook".
 
 * Dates: December 2-4, 2025
 * Times: 9:30 -- 12:30 and 14:00 -- 17:00 
-* Location: TBA
+* Location: IMF HQ2-03B-748
+
 
 ## Instructors
 
