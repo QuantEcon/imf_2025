@@ -60,13 +60,13 @@ Operations Research.  In 2016 he co-founded QuantEcon with Thomas J. Sargent.
 
 ## Syllabus
 
-* Monday morning: Introduction 
+* Monday morning: Search and household problems I
   - TBA
-* Monday afternoon: Scientific Python
+* Monday afternoon: Search and household problems II
   - TBA
-* Tuesday morning: Search and household problems I
+* Tuesday morning: Data wrangling: Pandas and polars
   - TBA
-* Tuesday afternoon: Search and household problems II
+* Tuesday afternoon: Data science and Bayesian analysis
   - TBA
 * Wednesday morning: Introduction to deep learning
   - TBA
