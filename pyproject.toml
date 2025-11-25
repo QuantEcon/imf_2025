@@ -1,0 +1,18 @@
+[project]
+name = "imf-2025"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jax>=0.8.1",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.7",
+    "numba>=0.62.1",
+    "numpy>=2.3.5",
+    "numpyro>=0.19.0",
+    "pandas>=2.3.3",
+    "polars>=1.35.2",
+    "quantecon>=0.10.1",
+    "seaborn>=0.13.2",
+]

@@ -38,7 +38,7 @@ Notebook".
 ## Times and Dates
 
 * Dates: December 2-4, 2025
-* Times: 9:30 -- 12:30 and 14:00 -- 17:00 
+* Times: 9:30 -- 12:30 and 14:00 -- 17:00
 * Location: IMF HQ2-03B-748
 
 
@@ -54,7 +54,7 @@ computational economist current based at Kyoto University who works on
 algorithms at the intersection of dynamic programming, Markov dynamics,
 economics, and finance.  His work is published in journals such as the Journal
 of Finance, the Journal of Economic Theory, Econometrica, and
-Operations Research.  In 2016 he co-founded QuantEcon with Thomas J. Sargent. 
+Operations Research.  In 2016 he co-founded QuantEcon with Thomas J. Sargent.
 
 
 
@@ -74,7 +74,7 @@ We understand that the Anaconda Python distribution is not available for local
 installs within the IMF. For those who want local installs (rather than just
 using Colab), you can try installing plain vanilla Python plus scientific
 libraries with pip. The following instructions give some ideas but please use at
-your own discretion and let us know about your experiences.  
+your own discretion and let us know about your experiences.
 
 Note that these instructions only install some of the libraries you will need.
 Additional packages can be installed incrementally with `pip install xxx`.
@@ -99,7 +99,7 @@ Additional packages can be installed incrementally with `pip install xxx`.
 
 4. **Install required packages**:
    ```bash
-   pip install jupyter quantecon matplotlib numpy numba jax pandas seaborn
+   pip install jupyter quantecon matplotlib numpy numba jax pandas polars seaborn
    ```
 
 5. **Run Jupyter Notebook**:
@@ -131,7 +131,7 @@ Additional packages can be installed incrementally with `pip install xxx`.
 
 4. **Install required packages**:
    ```bash
-   pip install jupyter quantecon matplotlib numpy numba jax pandas seaborn
+   pip install jupyter quantecon matplotlib numpy numba jax pandas polars seaborn
    ```
 
 5. **Run Jupyter Notebook**:
@@ -172,7 +172,7 @@ Additional packages can be installed incrementally with `pip install xxx`.
 
 5. **Install required packages**:
    ```cmd
-   pip install jupyter quantecon matplotlib numpy numba jax pandas seaborn
+   pip install jupyter quantecon matplotlib numpy numba jax pandas polars seaborn
    ```
 
 6. **Run Jupyter Notebook**:
@@ -184,5 +184,3 @@ Additional packages can be installed incrementally with `pip install xxx`.
    ```cmd
    deactivate
    ```
-
-
