@@ -16,7 +16,6 @@
   Relative to the course we ran at the IMF in 2024, there will be less emphasis on
   Python foundations and more emphasis on AI.
 
-
 ## Prerequisites
 
   We will assume that attendees are familiar with the basics of (a) Python  and
