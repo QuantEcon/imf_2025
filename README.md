@@ -99,7 +99,7 @@
 
     4. **Install required packages**:
        ```bash
-       pip install jupyter quantecon matplotlib numpy numba jax pandas polars seaborn
+       pip install jupyter quantecon matplotlib numpy numpyro numba jax pandas polars seaborn
        ```
 
     5. **Run Jupyter Notebook**:
@@ -131,7 +131,7 @@
 
     4. **Install required packages**:
        ```bash
-       pip install jupyter quantecon matplotlib numpy numba jax pandas polars seaborn
+       pip install jupyter quantecon matplotlib numpy numpyro numba jax pandas polars seaborn
        ```
 
     5. **Run Jupyter Notebook**:
@@ -172,7 +172,7 @@
 
     5. **Install required packages**:
        ```cmd
-       pip install jupyter quantecon matplotlib numpy numba jax pandas polars seaborn
+       pip install jupyter quantecon matplotlib numpy numpyro numba jax pandas polars seaborn
        ```
 
     6. **Run Jupyter Notebook**:
