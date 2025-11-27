@@ -1,0 +1,846 @@
+\documentclass[xcolor=dvipsnames, 10pt]{beamer}  
+
+\input{beamer_preamble.tex}
+
+\setbeamertemplate{caption}{\insertcaption}
+
+\setbeamerfont{caption}{size=\Large}
+%\setbeamerfont{caption name}{size=\large}
+
+\definecolor{darkbrown}{rgb}{0.4, 0.26, 0.13}
+\newcommand{\boldbrown}[1]{\textbf{\textcolor{darkred}{#1}}}
+\newcommand{\brown}[1]{\textcolor{darkred}{#1}}
+\newcommand{\darkbrown}[1]{\textcolor{darkbrown}{#1}}
+\newcommand{\boldteal}[1]{\textbf{\textcolor{teal}{#1}}}
+\newcommand{\emp}[1]{\textbf{#1}}
+
+ \date[\today]{}
+
+ \title{Modern Computational Economics and \\ Policy Applications}
+
+ \subtitle{A Workshop at the IMF}
+
+\author{Chase Coleman and John Stachurski}
+
+\date{2nd December 2025}
+
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}{Introduction}
+
+    Introductory slides cover
+
+    \begin{itemize}
+        \item Background: advanced in AI
+            \medskip
+        \item Coding with AI
+            \medskip
+        \item AI mania --- impact on hardware and software
+            \medskip
+        \item Consequences for economists
+    \end{itemize}
+    
+\end{frame}
+
+
+
+\section{Background}
+
+\begin{frame}{Background: Progress in AI}
+
+    \begin{itemize}
+        \item image processing / computer vision
+        \vspace{0.5em}
+        \item translation
+        \vspace{0.5em}
+        \item forecasting and prediction 
+        \vspace{0.5em}
+        \item generative AI  (LLMs, image / music / video)
+        \vspace{0.5em}
+        \item etc.
+    \end{itemize}
+
+    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Image Generators}
+    
+    \begin{figure}
+       \centering
+       \scalebox{0.3}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{image_gen.pdf}}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Video Generators}
+    
+    \begin{figure}
+       \centering
+       \scalebox{0.36}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{veo3.pdf}}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Forecasting}
+    
+    \begin{figure}
+       \centering
+       \scalebox{0.22}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{weather.pdf}}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    ``ECMWF's model is considered the gold standard for
+        medium-term weather forecasting\ldots 
+        Google DeepMind claims to beat it 90\% of the time\ldots''
+
+    $\quad \qquad$ $\quad \qquad$ --- MIT Technology Review 2024 \vspace{0.5em}
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \vspace{0.5em}
+
+    ``Google's GenCast model outdid the ECMWF forecasts 97.2 percent of the time
+    when predicting 1,320 global atmospheric features''
+
+
+    $\quad \qquad$ $\quad \qquad$ --- Weatherstats 2025 \vspace{0.5em}
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+
+    ``Traditional forecasting models are big, complex computer algorithms [that]
+    take hours to run. AI models can create forecasts in just seconds.'' 
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Also successful in predicting 
+
+    \begin{itemize}
+        \item electricity prices
+        \item renewable energy supply
+        \item fraudulent transations
+        \item patient admission rates in hospitals
+        \item sales and demand (e-commerce)
+        \item traffic flow
+        \item delivery times
+        \item etc.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{LLMs}
+    
+    \begin{figure}
+       \centering
+       \scalebox{0.5}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{gemini.pdf}}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+
+    Claude: ``Post-training RL is absolutely crucial for my reasoning abilities.''
+
+    \medskip
+    \begin{itemize}
+        \item Pre-trained model (trained only on next-token prediction) can do
+            some reasoning, but it's inconsistent and often produces meandering
+            or incorrect logical chains.
+    \end{itemize}
+
+    \medskip
+    \medskip
+    Process:
+
+    \begin{itemize}
+        \item Human raters evaluate my outputs for logical coherence
+        \item A reward model is trained to predict these human preferences
+        \item Training process uses RL via proximal policy optimization
+    \end{itemize}
+
+    \medskip
+    Learns to recognize and reject logical errors
+
+\end{frame}
+
+
+\begin{frame}{Example: Coding with AI}
+    
+    \begin{figure}
+       \centering
+       \scalebox{0.14}{\includegraphics{claude.png}}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}{AI coding affects optimal language choice}
+
+    \emp{Claude Sonnet 4.5:}
+
+    \medskip
+    \medskip
+    
+    ``I'm definitely stronger with Python than MATLAB.''
+
+    \vspace{0.5em}
+    ``My capabilities with Python
+    are more comprehensive. I have deeper familiarity with Python's extensive
+    ecosystem of libraries, frameworks, and modern development practices.''
+
+
+    \vspace{0.5em}
+    ``I can
+    more confidently help with advanced Python topics, debugging complex Python
+    code, and implementing Python best practices.''
+
+\end{frame}
+
+
+\begin{frame}
+    
+    ``I'm definitely stronger with Python than Julia.''
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+    ``Python is one of my most proficient languages - I have deep familiarity with
+    its syntax, libraries, frameworks, and best practices across many domains
+    including data science, web development, machine learning, and
+    general-purpose programming.''
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+    ``While I understand Julia's syntax and core concepts, my expertise with it
+    isn't as comprehensive as with Python.''
+
+\end{frame}
+
+
+\begin{frame}
+
+    \textbf{Claude:}
+
+    \medskip
+    
+  Thank you! It was a great exercise working through this model. We accomplished quite a lot:
+
+  \begin{itemize}
+      \item Fixed critical bugs 
+      \item Improved architecture 
+      \item Enhanced code quality 
+  \end{itemize}
+
+  \brown{Your suggestions throughout} - especially making K global for JAX compatibility
+  and using the builder pattern for the Model - \brown{really improved the overall
+    design!}
+
+\end{frame}
+
+
+\begin{frame}{Pros and cons}
+    
+    \begin{itemize}
+        \item Doesn't see the big picture
+        \vspace{0.5em}
+        \item Can ace small tasks but struggles to connect them 
+        \vspace{0.5em}
+        \item You still need to be the architect
+        \vspace{0.5em}
+        \item Sometimes AI gets weird
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Example: AlphaEvolve} 
+
+    \begin{figure}
+       \centering
+       \scalebox{0.32}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{evolve.pdf}}
+    \end{figure}
+
+    \begin{center}
+        Google Deepmind May 2025
+    \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    A coding agent for scientific and algorithmic discovery
+
+        \vspace{0.5em}
+
+    \begin{itemize}
+        \item Employs an evolutionary algorithm
+        \vspace{0.5em}
+        \item Asks an ensemble of LLMs and then iterates, tests, refines
+        \vspace{0.5em}
+    \end{itemize}
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+    Process
+
+        \vspace{0.5em}
+
+    \begin{enumerate}
+        \item Proposed solutions evaluated 
+        \vspace{0.5em}
+        \item Promising solutions are selected and mutated by LLMs 
+        \vspace{0.5em}
+        \item ``Survival of the fittest" progressively improves performance
+    \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+
+    Outcomes at Google:
+
+        \vspace{0.5em}
+
+    \begin{itemize}
+        \item Enhanced efficiency in chip design (TPUs)
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \item Improved data center scheduling
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \item Discovered new matrix multiplication algorithms (surpassing
+            Strassen's algorithm for 4x4 complex matrices) 
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Example: DS-STAR} 
+
+    A coding agent for automated data science (Google Research)
+
+    A data science agent that automates tasks from statistical analysis to
+    visualization across various data types
+
+    ``Transforms raw data into actionable insights'' by automating document
+    interpretation and statistical analysis.
+
+    \begin{itemize}
+        \item Built on LLMs 
+        \item ``engages in a loop of planning, implementing, and verifying.''
+        \item Achieves top performance on the DABStep benchmark.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+
+    \begin{figure}
+       \centering
+       \scalebox{0.24}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{ds_star.png}}
+    \end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Investment}
+
+    Private AI investment by US firms in 2024 = \$109 billion USD
+
+        \vspace{0.5em}
+    Estimate for 2025 = \$615 billion
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \vspace{0.5em}
+    Massive investments in 
+
+    \begin{itemize}
+        \item data centers
+        \vspace{0.5em}
+        \item server / GPU / TPU design and production
+        \vspace{0.5em}
+        \item software development
+    \end{itemize}
+
+\end{frame}
+
+
+
+\section{Deep Learning}
+
+\begin{frame}{Deep Learning}
+
+
+    \brown{All} of the AI projects listed above use \boldbrown{deep learning}
+
+    \medskip
+    \begin{itemize}
+        \item Representation of relationships through ``artificial neural networks''
+    \medskip
+        \item The networks are ``trained'' through gradient descent
+    \end{itemize}
+
+    \medskip
+
+    As a result, understanding the foundations of DL can help us
+
+    \begin{itemize}
+        \item build and work with AI-adjacent models
+            \medskip
+        \item understand why hardware and software have evolved to the present
+            state
+            \medskip
+        \item predict where these environments are heading
+    \end{itemize}
+    
+\end{frame}
+
+
+
+\begin{frame}{Whirlwind introduction to deep learning}
+
+    Let's start with the learning problem
+    
+    We observe input-output pairs $(x, y)$, where
+    %
+    \begin{itemize}
+        \item $x \in \RR^k$
+        \item $y \in \RR$  (for example)
+    \end{itemize}
+
+    \medskip
+
+    \Egs
+    %
+    \begin{itemize}
+        \item  $x = $ \brown{market indicators} at $t$; $y = $ \brown{prob of financial crisis}
+            at $t+1$
+        \vspace{0.3em}
+    \item $x = $ \brown{electricity consumption} at $t-s, \ldots, t$; $y = $
+        \brown{demand} at $t$
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.36}{\includegraphics{nonlinear_fitting_1.pdf}}
+       \end{center}
+    \end{figure}
+
+
+    Problem: observe $(x_i, y_i)_{i=1}^n$ and seek $f$ such that $y_{n+1}
+            \approx f(x_{n+1})$
+
+\end{frame}
+
+\begin{frame}{Nonlinear Regression}
+
+    Training:
+
+    \begin{enumerate}
+        \item Choose function class $\{f_\theta\}_{\theta \in \Theta}$ 
+            \vspace{0.4em}
+        \item Minimize loss 
+            %
+            \begin{equation*}
+                \ell(\theta) := \sum_{i=1}^n (y_i - f_\theta(x_i))^2
+                \quad \st \quad \theta \in \Theta
+            \end{equation*}
+    \end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.36}{\includegraphics{nonlinear_fitting.pdf}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Deep Learning (DL)}
+    
+
+    In the case of DL, elements of $\{f_\theta\}_{\theta \in \Theta}$
+    have a particular structure:
+
+    \vspace{0.5em}
+    \begin{equation*}
+        f_\theta = A^m_\theta \circ \sigma \circ \cdots \circ
+            A^2_\theta \circ \sigma \circ A^1_\theta
+    \end{equation*}
+
+            \medskip
+    \begin{itemize}
+        \item each $A_\theta^i$ is an ``affine'' function
+            \medskip
+        \item $\sigma$ is a ``activation'' function
+    \end{itemize}
+
+    \medskip
+    \medskip
+    Choosing $\theta$ means choosing the parameters in the neural net
+
+\end{frame}
+
+
+\begin{frame}
+
+    Minimizing $\ell(\theta)$ -- what algorithm?
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.15}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{gdi.png}}
+       \end{center}
+    \end{figure}
+
+    Source: \url{https://danielkhv.com/}
+
+\end{frame}
+
+
+
+\begin{frame}
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.32}{\includegraphics{gradient_steepest_ascent.png}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Gradient descent
+
+    \begin{equation*}
+        \theta_{n+1} = 
+        \textcolor{purple}{\theta_n} - \textcolor{brown}{\lambda} \nabla \ell(\textcolor{purple}{\theta_n})
+    \end{equation*}
+
+            \medskip
+            \medskip
+
+    \begin{itemize}
+        \item $\textcolor{purple}{\theta_n} = $ current guess
+            \medskip
+        \item $\textcolor{brown}{\lambda} = $ learning rate
+            \medskip
+        \item $\nabla \ell = $ gradient of loss function
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+    Deep learning: $\theta \in \RR^d$ where $d = ?$
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.14}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{loss2.jpg}}
+       \end{center}
+    \end{figure}
+
+    Source: \url{https://losslandscape.com/gallery/}
+
+\end{frame}
+
+
+
+\section{Tools}
+
+\begin{frame}
+    \frametitle{How does it work?}
+    
+    How is it possible to minimize loss over such high dimensions??
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \pause
+
+    Core elements
+    %
+    \begin{enumerate}
+        \item parallelization over powerful hardware (GPUs or TPUs)
+        \vspace{0.5em}
+        \item automatic differentiation (for \underline{gradient} descent)
+        \vspace{0.5em}
+        \item Compilers / JIT-compilers for fast parallelized machine code
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Parallelization}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.22}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{dgx.png}}
+       \end{center}
+    \end{figure}
+    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Parallelization}
+
+    \begin{figure}
+       \begin{center}
+        \includegraphics[width=0.82\textwidth]{geforce.png}
+       \end{center}
+    \end{figure}
+    
+\end{frame}
+
+
+
+\begin{frame}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.72\textwidth]{autodiff.pdf}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{2.4}{\includegraphics{jax.png}}
+       \end{center}
+    \end{figure}
+    
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Just-in-time compilers}
+
+    \vspace{0.5em}
+    
+    \begin{minted}{python}
+@jax.jit
+def f(x):
+    return jnp.sin(x) - jnp.cos(x**2)
+    \end{minted}
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+
+    \begin{itemize}
+        \item detects and adapts to problem dimensions
+    \vspace{0.5em}
+        \item detects and adapts to existing hardware
+    \vspace{0.5em}
+        \item automatic parallelization 
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Automatic differentiation}
+
+    \begin{minted}{python}
+from jax import grad
+
+def f(θ, x):
+    # add details here
+    return prediction
+
+def loss(θ, x, y):
+  return jnp.sum((y - f(θ, x))**2)
+
+loss_gradient = grad(loss)   # exact automatic differentiation
+θ = θ - λ * loss_gradient(θ, x_data, y_data)
+    \end{minted}
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Platforms}
+    
+    Platforms that support AI / deep learning:
+
+    \vspace{0.5em}
+    \begin{itemize}
+        \item Tensorflow
+        \vspace{0.5em}
+        \item PyTorch (Llama, ChatGPT)
+        \vspace{0.5em}
+        \item Google JAX (Gemini, DeepMind)
+        \vspace{0.5em}
+        \item Keras (backends $=$ JAX, PyTorch)
+        \vspace{0.5em}
+        \item Mojo (Modular (Python))
+        \vspace{0.5em}
+        \item MATLAB???
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+    
+    Popularity -- languages and libraries
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.62}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{trends.pdf}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Popularity -- DL / ML frameworks
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.62}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{trends_2.pdf}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+    \frametitle{AI tools for economic modeling}
+
+    Let's say that you want to do computational economics without deep learning
+
+    \vspace{0.5em}
+    Can these new AI tools be applied?
+
+    \pause
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \emp{Yes!}
+    \emp{Yes!}
+    \emp{Yes!}
+
+    \begin{itemize}
+        \item fast matrix algebra
+        \vspace{0.5em}
+        \item fast solutions to linear systems
+        \vspace{0.5em}
+        \item fast nonlinear system solvers
+        \vspace{0.5em}
+        \item fast optimization, etc.
+    \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Case Study}
+
+    The CBC uses the ``overborrowing'' model of Bianchi (2011)
+
+    \begin{itemize}
+        \item credit constraint loosens during booms
+        \item bad shocks $\to$ sudden stops
+    \end{itemize}
+
+    \vspace{0.5em}
+    CBC implementation in MATLAB 
+
+    \begin{itemize}
+        \item runs on \$10,000 mainframe with 356 CPUs and 1TB RAM
+        \item runtime $=$ 12 hours
+    \end{itemize}
+
+    \pause
+    \vspace{0.5em}
+    Rewrite in Python + Google JAX
+
+    \begin{itemize}
+        \item runs on \$400 gaming GPU with 10GB RAM
+        \item runtime $=$ 7 seconds
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Summary}
+
+    \begin{itemize}
+        \item We are at the start of a massive AI revolution
+        \vspace{0.2em}
+        \item This revolution will have a huge impact on science
+        \vspace{0.2em}
+        \item What impact on economics?
+    \end{itemize}
+
+        \vspace{0.2em}
+        \vspace{0.2em}
+        \vspace{0.2em}
+        \vspace{0.2em}
+    \pause
+    Aims
+
+        \vspace{0.2em}
+    \begin{itemize}
+        \item Better understanding of core AI methods
+            \vspace{0.2em}
+        \item Better understanding of core tools (hardware / software)
+            \vspace{0.2em}
+        \item Apply knowledge to current economic modeling 
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\end{document}
