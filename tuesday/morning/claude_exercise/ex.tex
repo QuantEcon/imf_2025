@@ -1,0 +1,158 @@
+\documentclass[xcolor=dvipsnames]{beamer}  
+
+\input{slides_preamb.tex}
+
+\title{Live Coding Exercise: Time Series Model}
+
+\author{John Stachurski}
+
+\date{December 2025}
+
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Introduction}
+    
+    We describe a coding exercise.
+
+    \medskip
+
+    We'll ask a coding agent to reproduce all of the figures in this document.
+
+    \medskip
+    In particular, we'll ask the agent to
+
+    \begin{itemize}
+        \item write a solution using Fortran
+    \medskip
+        \item write another solution using Python
+    \medskip
+        \item optimize both
+    \medskip
+        \item compare outcomes
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Consider the one-dimensional dynamic system
+    %
+    \begin{equation}\label{eq:quad_map}
+        x_{t+1} = g(x_t) 
+        \quad \text{ where } \quad g(x) := 4x(1-x).
+    \end{equation}
+    %
+
+    Defines \navy{trajectories} $(x_t)_{t\geq 0}$ recursively by
+    $x_{t+1} = g(x_t)$ and some fixed initial condition $x_0$
+
+    \vspace{0.5em}
+    Another way to write this trajectory is
+    %
+    \begin{equation*}
+        x_t = g^t (x_0) 
+        \quad \text{where} \quad
+        g^t := g \circ \cdots \circ g
+    \end{equation*}
+    %
+
+    The product on the right is $t$ compositions of $g$ with itself.
+
+    \vspace{0.5em}
+    The map $g$ is called either the \navy{logistic map} or the \navy{quadratic map} 
+
+\end{frame}
+
+
+\begin{frame}
+
+    \begin{figure}
+        \centering
+        \scalebox{0.36}{\includegraphics{figures/chaos_intro_quad_map.pdf}}
+        \caption{\label{f:chaos_intro_quad_map} The quadratic map and 45 degree line}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Cycles occur when we iterate with the quadratic map 
+
+    \vspace{0.5em}
+    This is easily confirmed by plotting time series
+
+    \vspace{0.5em}
+    The next figure shows one such series when $x_0 = 0.3$
+
+    \vspace{0.5em}
+    We see that the behavior of the state is not only cyclical but also highly erratic
+
+    \vspace{0.5em}
+    It shows no sign of convergence to regular behaviour   
+
+\end{frame}
+
+
+\begin{frame}
+    
+    \begin{figure}
+        \centering
+        \scalebox{0.36}{\includegraphics{figures/chaos_intro_traj.pdf}}
+        \caption{\label{f:chaos_intro_traj} Time series from the quadratic map when $x_0 = 0.3$}
+    \end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}
+    
+    At the same time, the model can generate strong ``statistical'' predictions 
+    over long time horizons
+
+    \medskip
+    As one way to see this, consider the histogram shown in the next figure
+
+    \medskip
+    This is a histogram of the sequence $(g^t(x_0))_{t=0}^n$ when $x_0=0.3$ and
+    $n=100,000$
+
+    \medskip
+    Evidently there is some pattern to the apparent randomness, since the
+    histogram is symmetric and U-shaped
+
+\end{frame}
+
+
+
+\begin{frame}
+    
+    \begin{figure}
+        \centering
+        \scalebox{0.36}{\includegraphics{figures/chaos_intro_time_series_hist.pdf}}
+        \caption{\label{f:chaos_intro_time_series_hist} A histogram of $(x_0,
+        \ldots, x_n)$ when $n=100,000$}
+    \end{figure}
+
+\end{frame}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
