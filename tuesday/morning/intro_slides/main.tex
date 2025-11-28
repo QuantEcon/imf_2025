@@ -164,9 +164,30 @@
 
 \end{frame}
 
+\begin{frame}{Training LLMs 1.0}
+    
+    Inner loop:
+
+    \begin{enumerate}
+        \item Learning machine reads in $n$ tokens (input, context window)
+        \item Machine assigns pmf over next token (output)
+        \item Prediction compared to observed token using KL distance
+        \item Loss recorded and window shifted forward one token
+    \end{enumerate}
+
+    \medskip
+    Outer loop:
+
+    \begin{enumerate}
+        \item Accumulate losses over the batch to build loss function
+        \item Evaluate gradient of loss function at current parameters
+        \item Update parameters to reduce loss
+    \end{enumerate}
+
+\end{frame}
 
 
-\begin{frame}{LLMs learn logic}
+\begin{frame}{Phase II: LLMs learn logic}
     
     \begin{figure}
        \centering
@@ -201,6 +222,51 @@
     Learns to recognize and reject logical errors
 
 \end{frame}
+
+
+\begin{frame}{Gemini 3}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.072}{\includegraphics{gemini_3.png}}
+       \end{center}
+    \end{figure}
+    
+\end{frame}
+
+\begin{frame}{Vending Bench}
+
+    Agents must autonomously run a vending machine business for a year.
+
+    \medskip
+    \begin{itemize}
+        \item Suppliers may and actively try to exploit the agent 
+        \medskip
+        \item Negotiation is essential to success
+        \medskip
+        \item Deliveries can be delayed, suppliers can go out of business
+        \medskip
+        \item Agents must build robust supply chains and always have a plan B
+        \medskip
+        \item Unhappy customers can demand costly refunds at any time
+    \end{itemize}
+
+        \medskip
+    \url{https://andonlabs.com/evals/vending-bench-2}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.36}{\includegraphics{vending.png}}
+       \end{center}
+    \end{figure}
+    
+\end{frame}
+
 
 \begin{frame}{Investment}
 
@@ -594,34 +660,21 @@
 
 \end{frame}
 
-\begin{frame}
-
-    Deep learning: $\theta \in \RR^d$ where $d = ?$
-    
-    \begin{figure}
-       \begin{center}
-        \scalebox{0.14}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{loss2.jpg}}
-       \end{center}
-    \end{figure}
-
-    Source: \url{https://losslandscape.com/gallery/}
-
-\end{frame}
-
-
 
 \section{Tools}
 
 \begin{frame}
     \frametitle{How does it work?}
     
-    How is it possible to minimize loss over such high dimensions??
+    Deep learning: $\theta \in \RR^d$ where $d = ?$
+    \medskip
+    \pause
+
+    How is it possible to minimize loss over such high dimensions??!
 
         \vspace{0.5em}
         \vspace{0.5em}
         \vspace{0.5em}
-        \vspace{0.5em}
-        \pause
 
     Core elements
     %
@@ -660,24 +713,24 @@
 
 
 
-\begin{frame}
+% \begin{frame}
+%
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=0.72\textwidth]{autodiff.pdf}
+%     \end{figure}
+%
+% \end{frame}
 
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.72\textwidth]{autodiff.pdf}
-    \end{figure}
-
-\end{frame}
-
-\begin{frame}
-
-    \begin{figure}
-       \begin{center}
-        \scalebox{2.4}{\includegraphics{jax.png}}
-       \end{center}
-    \end{figure}
-    
-\end{frame}
+% \begin{frame}
+%
+%     \begin{figure}
+%        \begin{center}
+%         \scalebox{2.4}{\includegraphics{jax.png}}
+%        \end{center}
+%     \end{figure}
+%     
+% \end{frame}
 
 
 \begin{frame}[fragile]
@@ -855,7 +908,7 @@ loss_gradient = grad(loss)   # exact automatic differentiation
         \vspace{0.2em}
         \vspace{0.2em}
     \pause
-    Aims
+    Aims:
 
         \vspace{0.2em}
     \begin{itemize}
@@ -863,7 +916,9 @@ loss_gradient = grad(loss)   # exact automatic differentiation
             \vspace{0.2em}
         \item Better understanding of core tools (hardware / software)
             \vspace{0.2em}
-        \item Apply knowledge to current economic modeling 
+        \item Apply knowledge to economic modeling 
+            \vspace{0.2em}
+        \item Explore policy implications
     \end{itemize}
 
 \end{frame}
