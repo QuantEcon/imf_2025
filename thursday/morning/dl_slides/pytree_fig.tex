@@ -1,0 +1,84 @@
+
+\begin{tikzpicture}[
+    % Node styles
+    container/.style={draw=containerblue!70!black, 
+        fill=containerblue, 
+        rounded corners=3pt, 
+        minimum width=3cm, 
+        minimum height=1cm, text=white, font=\sffamily\bfseries},
+    leaf/.style={draw=leafgreen!70!black, fill=leafgreen, rounded corners=3pt, minimum width=2cm, minimum height=1cm, text=white, font=\sffamily\bfseries},
+    label/.style={font=\sffamily\small, text=textgray},
+    level distance=2cm,
+    sibling distance=3cm
+]
+
+% Background
+\node[rectangle, fill=backgroundgray, minimum width=20cm, minimum height=15cm] (background) at (0,0) {};
+
+% Title
+\node[font=\sffamily\bfseries\Large, text=textgray] at (0,6.5) {JAX PyTree Structure};
+
+% Sample code with syntax highlighting
+\node[anchor=north] (code) at (0,5.5) {
+  \begin{varwidth}{14cm}
+    \begin{minted}{python}
+pytree = {
+    "a": [1, 2, 3],
+    "b": {"c": jnp.array([4, 5]), "d": jnp.array([[6, 7], [8, 9]])}
+}
+    \end{minted}
+  \end{varwidth}
+};
+
+% Add a border around the code
+\begin{scope}[on background layer]
+\draw[rounded corners=3pt, draw=black!20] 
+  ([shift={(-0.5em,-0.5em)}]code.south west) rectangle 
+  ([shift={(0.5em,0.5em)}]code.north east);
+\end{scope}
+
+\path (code.south) -- ++(0,-1.5) coordinate (after_code);
+
+\node[container] (root) at (0,2) {dict};
+
+% First level children
+\node[container] (list) at (-4,1) {list};
+\node[label] at (-4,1.8) {"a"};
+\node[container] (dict) at (4,1) {dict};
+\node[label] at (4,1.8) {"b"};
+
+% Second level - list elements
+\node[leaf] (n1) at (-6,-1) {1};
+\node[leaf] (n2) at (-4,-1) {2};
+\node[leaf] (n3) at (-2,-1) {3};
+
+% Second level - dict elements
+\node[container] (array1) at (2,-1) {array};
+\node[label] at (2,-0.2) {"c"};
+\node[container] (array2) at (6,-1) {array};
+\node[label] at (6,-0.2) {"d"};
+
+% Array values (leaf nodes)
+\node[leaf, text width=2.5cm, align=center] (val1) at (2,-3) {[4, 5]};
+\node[leaf, text width=3cm, align=center] (val2) at (6,-3) {[[6, 7], [8, 9]]};
+
+% Edges connecting nodes
+\draw[->, >=stealth, thick, textgray] (root) -- (list);
+\draw[->, >=stealth, thick, textgray] (root) -- (dict);
+\draw[->, >=stealth, thick, textgray] (list) -- (n1);
+\draw[->, >=stealth, thick, textgray] (list) -- (n2);
+\draw[->, >=stealth, thick, textgray] (list) -- (n3);
+\draw[->, >=stealth, thick, textgray] (dict) -- (array1);
+\draw[->, >=stealth, thick, textgray] (dict) -- (array2);
+\draw[->, >=stealth, thick, textgray] (array1) -- (val1);
+\draw[->, >=stealth, thick, textgray] (array2) -- (val2);
+
+% Legend
+\node[container, minimum width=1cm, minimum height=0.6cm] (legend1) at (-7,-5) {};
+\node[text=textgray, font=\sffamily, anchor=west] at (-6.5,-5) {Container nodes (dict, list, tuple)};
+
+\node[leaf, minimum width=1cm, minimum height=0.6cm] (legend2) at (-7,-6) {};
+\node[text=textgray, font=\sffamily, anchor=west] at (-6.5,-6) {Leaf nodes (arrays, scalars)};
+
+
+\end{tikzpicture}
