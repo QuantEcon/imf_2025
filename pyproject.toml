@@ -15,4 +15,5 @@ dependencies = [
     "polars>=1.35.2",
     "quantecon>=0.10.1",
     "seaborn>=0.13.2",
+    "zstandard>=0.25.0",
 ]
