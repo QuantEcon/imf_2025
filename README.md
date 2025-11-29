@@ -62,8 +62,13 @@
     * [The Income Fluctuation Problem II: Optimistic Policy Iteration](https://python.quantecon.org/ifp_opi.html)
     * [The Income Fluctuation Problem III: The Endogenous Grid Method](https://python.quantecon.org/ifp_egm.html)
     * [The Income Fluctuation Problem IV: Transient Income Shocks](https://python.quantecon.org/ifp_egm_transient_shocks.html)
-    * [The Income Fluctuation Problem V: Stochastic Returns on Assets](https://python.quantecon.org/ifp_advanced.html) 
+    * [The Income Fluctuation Problem V: Stochastic Returns on Assets](https://python.quantecon.org/ifp_advanced.html)
   * Wednesday morning: Data wrangling: Pandas and polars
+    * [Modern data landscape and why Python](wednesday/morning/python_data_slides.pdf)
+    * [Data wrangling with `pandas`](wednesday/morning/pandas.ipynb)
+    * [Practice time! Parts 1+2](wednesday/morning/data_practice.ipynb)
+    * [Introduction to `polars`](wednesday/morning/polars.ipynb)
+    * [Practice time! Parts 3+4](wednesday/morning/data_practice.ipynb)
   * Wednesday afternoon: Data science and Bayesian analysis
   * Thursday morning: Introduction to deep learning
     * [Introduction to Deep Learning](thursday/morning/dl_slides/anns.pdf)
@@ -90,4 +95,3 @@ For live coding at the workshop, we recommend [Colab](https://colab.research.goo
 
   You can run these lectures by clicking the "play" icon top right, selecting
   Colab, and clicking on "Launch Notebook".
-

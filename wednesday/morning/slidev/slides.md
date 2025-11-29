@@ -198,7 +198,8 @@ transition: slide-up
 
 # Data for our exercises
 
-We will be working with vessel transmitter (AIS) data today.
+We will be working with some alternative data today -- We will be examining vessel transmitter
+(AIS) data.
 
 ::left::
 
