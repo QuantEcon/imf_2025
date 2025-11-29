@@ -1,4 +1,6 @@
-# Modern Computational Economics and Policy Applications
+# IMF Workshop 2025
+
+**Modern Computational Economics and Policy Applications**
 
 ![](qe-logo-large.png)
 
