@@ -45,10 +45,30 @@
 ## Syllabus
 
   * Tuesday morning: Course overview, AI pair programming
-  * Tuesday afternoon: Household problems (DP and EGM) via JAX 
+    * [Introduction](tuesday/morning/intro_slides/main.pdf)
+    * [Coding with AI](tuesday/morning/claude_exercise/ex.pdf)
+    * [Python for Scientific Computing](https://python-programming.quantecon.org/need_for_speed.html)
+    * [JAX](https://python-programming.quantecon.org/jax_intro.html)
+    * [NumPy vs Numba vs JAX](https://python-programming.quantecon.org/numpy_vs_numba_vs_jax.html)
+  * Tuesday afternoon: Household problems (DP and EGM) via JAX
+    * [Optimal Savings I: Cake Eating](https://python.quantecon.org/os.html)
+    * [Optimal Savings II: Numerical Cake Eating](https://python.quantecon.org/os_numerical.html)
+    * [Optimal Savings III: Stochastic Returns](https://python.quantecon.org/os_stochastic.html)
+    * [Optimal Savings IV: Time Iteration](https://python.quantecon.org/os_time_iter.html)
+    * [Optimal Savings V: The Endogenous Grid Method](https://python.quantecon.org/os_egm.html)
+    * [Optimal Savings VI: EGM with JAX](https://python.quantecon.org/os_egm_jax.html)
+    * [The Income Fluctuation Problem I: Discretization and VFI](https://python.quantecon.org/ifp_discrete.html)
+    * [The Income Fluctuation Problem II: Optimistic Policy Iteration](https://python.quantecon.org/ifp_opi.html)
+    * [The Income Fluctuation Problem III: The Endogenous Grid Method](https://python.quantecon.org/ifp_egm.html)
+    * [The Income Fluctuation Problem IV: Transient Income Shocks](https://python.quantecon.org/ifp_egm_transient_shocks.html)
+    * [The Income Fluctuation Problem V: Stochastic Returns on Assets](https://python.quantecon.org/ifp_advanced.html) 
   * Wednesday morning: Data wrangling: Pandas and polars
   * Wednesday afternoon: Data science and Bayesian analysis
   * Thursday morning: Introduction to deep learning
+    * [Introduction to Deep Learning](thursday/morning/dl_slides/anns.pdf)
+    * [Simple Neural Network Regression with Keras and JAX](https://jax.quantecon.org/keras.html)
+    * [Neural Network Regression with JAX](https://jax.quantecon.org/jax_nn.html)
+    * [Policy Gradient-Based Optimal Savings](https://jax.quantecon.org/ifp_dl.html)
   * Thursday afternoon: Reinforcement learning
 
 
