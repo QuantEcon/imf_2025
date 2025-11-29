@@ -1,0 +1,477 @@
+
+
+\setbeamertemplate{navigation symbols}
+
+\mode<presentation>
+{
+  \usetheme{Singapore}
+  % or ...
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+%\renewcommand{\insertnavigation}[1]{}
+%
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+    \vspace{0.5em}
+}
+
+
+\setbeamercolor{footline}{fg=blue}
+\setbeamerfont{footline}{series=\bfseries}
+
+\AtBeginDocument{%
+      \DeclareSymbolFont{pureletters}{T1}{lmr}{\mddefault}{it}%
+      }
+      
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+\usetikzlibrary{patterns}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shadows}
+
+\usepackage{diagbox}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{listings}
+\usepackage{balance}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{subcaption}
+%\usepackage[utf8]{inputenc}  % Not needed with XeLaTeX/LuaLaTeX
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+%\newfontfamily{\emojifont}{Noto Color Emoji}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+%\usepackage{algpseudocode}
+\usepackage{booktabs}
+
+\usepackage[xcharter]{newtxmath}
+\usepackage[mathscr]{}
+\usepackage{stmaryrd} % St Mary's Road symbols font --- some extra symbols
+\usepackage{bbm}
+\usepackage{centernot}
+
+\usepackage[font=scriptsize]{caption}
+\setbeamertemplate{caption}[numbered]
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+
+\usepackage{ragged2e}
+\usepackage{varwidth}
+
+\usepackage{hyperref} 
+\definecolor{darkblue}{rgb}{0,0,.6}
+\definecolor{darkred}{rgb}{0.55, 0, 0}
+
+
+\usepackage[sort&compress]{natbib}
+% removes reference from top menu bar
+\renewcommand\bibsection{\section[]{\refname}}
+% remove roman numbering for nobreak references
+\setbeamertemplate{frametitle continuation}{}
+
+% change the color of the citation and ref
+\bibpunct{\textcolor{darkblue}{(}}{\textcolor{darkblue}{)}}{,}{a}{}{;}
+\renewcommand{\eqref}[1]{\textcolor{darkblue}{(}\ref{#1}\textcolor{darkblue}{)}}
+
+\definecolor{codebg}{RGB}{241, 241, 241}
+\definecolor{dogerblue}{RGB}{24,116,205}
+\definecolor{blue2}{RGB}{0,0,238}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\definecolor{DarkOrange1}{RGB}{255,127,0}
+\definecolor{ForestGreen}{RGB}{34,139,34}
+\definecolor{DarkRed}{RGB}{139, 0, 0}
+\definecolor{DarkBlue}{RGB}{0, 0, 139}
+\definecolor{Blue}{RGB}{0, 0, 255}
+\definecolor{Brown}{RGB}{165,42,42}
+
+
+
+% Hyperref setup for colored links
+\hypersetup{colorlinks=true,citecolor=darkblue,linkcolor=darkblue,urlcolor=blue}
+
+\newcommand{\assumptionref}[1]{\hyperlink{#1}{Assumption~\ref*{#1}}}
+\newcommand{\theoremref}[1]{\hyperlink{#1}{Theorem~\ref*{#1}}}
+\newcommand{\lemmaref}[1]{\hyperlink{#1}{Lemma~\ref*{#1}}}
+\newcommand{\propositionref}[1]{\hyperlink{#1}{Proposition~\ref*{#1}}}
+\newcommand{\exampleref}[1]{\hyperlink{#1}{Example~\ref*{#1}}}
+\newcommand{\definitionref}[1]{\hyperlink{#1}{Definition~\ref*{#1}}}
+\newcommand{\resultref}[1]{\hyperlink{#1}{Result~\ref*{#1}}}
+\newcommand{\figref}[1]{\hyperlink{#1}{Figure~\ref*{#1}}}
+
+\usepackage[cache=true, cachedir=_minted]{minted}
+\usemintedstyle{friendly}
+\setminted[python]{
+  fontsize=\small,
+  baselinestretch=1.2,
+  linenos=false,
+  breaklines=true,
+  frame=none
+}
+
+
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+\newtcbtheorem{TheoremBox}{Theorem}{
+    enhanced,
+    fontupper=\small\sffamily,
+    colback=white,
+    colframe=red!55!black,
+    left=1mm,
+    right=1mm,
+    top=1mm,
+    bottom=1mm
+}{th}
+
+% Reset theorem counter on overlays to prevent incrementing with \pause
+\resetcounteronoverlays{tcb@cnt@TheoremBox}
+
+\newtcbtheorem{PropositionBox}{Proposition}{
+    enhanced,
+    fontupper=\small\sffamily,
+    colback=white,
+    colframe=blue!45!yellow,
+    left=1mm,
+    right=1mm,
+    top=1mm,
+    bottom=1mm
+}{pr}
+
+\resetcounteronoverlays{tcb@cnt@PropositionBox}
+
+\newtcbtheorem{AssumptionBox}{Assumption}{
+    enhanced,
+    fontupper=\small\sffamily,
+    colback=white,
+    colframe=yellow!45!black,
+    left=1mm,
+    right=1mm,
+    top=1mm,
+    bottom=1mm
+}{as}
+
+\resetcounteronoverlays{tcb@cnt@AssumptionBox}
+
+\newtcbtheorem{ExampleBox}{Example}{
+    enhanced,
+    fontupper=\small\sffamily,
+    colback=white,
+    colframe=green!35!blue,
+    left=1mm,
+    right=1mm,
+    top=1mm,
+    bottom=1mm
+}{ex}
+
+\resetcounteronoverlays{tcb@cnt@ExampleBox}
+
+\newtcbtheorem{ResultBox}{Result}{
+  enhanced,
+  fontupper=\small\sffamily,  
+  colback=white,
+  colframe=red!90!black!75,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm
+}{re}
+
+\resetcounteronoverlays{tcb@cnt@ResultBox}
+
+\newtcbtheorem{DefinitionBox}{Definition}{
+  enhanced,
+  fontupper=\small\sffamily,
+  colback=white,
+  colframe=blue!45!black,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm
+}{de}
+
+\resetcounteronoverlays{tcb@cnt@DefinitionBox}
+
+\newtcbtheorem{CorollaryBox}{Corollary}{
+  enhanced,
+  fontupper=\small\sffamily,
+  colback=white,
+  colframe=brown!45!black,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm
+}{co}
+
+\resetcounteronoverlays{tcb@cnt@CorollaryBox}
+
+\newtcbtheorem{LemmaBox}{Lemma}{
+  enhanced,
+  fontupper=\small\sffamily,
+  colback=white,
+  colframe=brown!45!black,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm
+}{co}
+
+\resetcounteronoverlays{tcb@cnt@LemmaBox}
+
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{ill}[thm]{Illustration}
+
+% nice inequalities
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% inner product
+\providecommand{\inner}[1]{\left\langle{#1}\right\rangle}
+\providecommand{\innerp}[1]{\left\langle{#1}\right\rangle_\pi}
+
+
+%extra spacing
+\renewcommand{\baselinestretch}{1.2}
+
+
+%horizonal line
+\newcommand{\HRule}{\rule{\linewidth}{0.3mm}}
+
+% skip a line between paragraphs, no indentation
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+\setlength{\parindent}{0pt}
+
+% footnote without a maker (blfootnote)
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Int}{int}
+%\DeclareMathOperator{\overset{\circ}}{int}
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\determinant}{det}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\graph}{graph}
+
+\definecolor{Brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{backgroundgray}{RGB}{240, 240, 240}
+\definecolor{containerblue}{RGB}{70, 130, 180}
+\definecolor{leafgreen}{RGB}{60, 179, 113}
+\definecolor{textgray}{RGB}{80, 80, 80}
+
+
+\newcommand{\Eg}{\textcolor{Brown}{Eg. }}
+\newcommand{\Def}{\textcolor{Brown}{Def. }}
+\newcommand{\Egs}{\textcolor{Brown}{Egs. }}
+
+% mics short cuts and symbols
+\newcommand{\too}{\stackrel { o } {\to} }
+\newcommand{\st}{\ensuremath{\ \mathrm{s.t.}\ }}
+\newcommand{\setntn}[2]{ \{ #1 : #2 \} }
+\newcommand{\fore}{\therefore \quad}
+\newcommand{\preqsd}{\preceq_{sd} }
+\newcommand{\toas}{\stackrel {\textrm{ \scriptsize{a.s.} }} {\to} }
+\newcommand{\tod}{\stackrel { d } {\to} }
+\newcommand{\tou}{\stackrel { u } {\to} }
+\newcommand{\toweak}{\stackrel { w } {\to} }
+\newcommand{\topr}{\stackrel { p } {\to} }
+\newcommand{\disteq}{\stackrel { \mathscr D } {=} }
+\newcommand{\eqdist}{\stackrel {\textrm{ \scriptsize{d} }} {=} }
+\newcommand{\iidsim}{\stackrel {\textrm{ {\sc iid }}} {\sim} }
+\newcommand{\1}{\mathbbm 1}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\dee}{\,{\rm d}}
+\newcommand{\og}{{\mathbbm G}}
+\newcommand{\ctimes}{\! \times \!}
+\newcommand{\sint}{{\textstyle\int}}
+
+\newcommand{\given}{\, | \,}
+\newcommand{\A}{\forall}
+
+% d for integrals
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\e{\mathrm{e}}
+
+
+% Special symbols and shortcuts
+\newcommand{\bmeta}{\bm{\eta}}
+\newcommand{\bmxi}{\bm{\xi}}
+
+\newcommand{\infot}{\fF_t}
+
+\newcommand{\pspace}{\mathscr{P}(\mathsf{X})}
+\newcommand{\cspace}{\mathscr{C}(\mathsf{X})}
+
+%\renewcommand{\times}{\! \times \!}
+
+\newcommand{\aA}{\mathcal A}
+\newcommand{\bB}{\mathscr B}
+\newcommand{\cC}{\mathscr C}
+\newcommand{\dD}{\mathcal D}
+\newcommand{\sS}{\mathscr S}
+\newcommand{\oO}{\mathcal O}
+\newcommand{\gG}{\mathcal G}
+\newcommand{\hH}{\mathcal H}
+\newcommand{\kK}{\mathcal K}
+\newcommand{\iI}{\mathcal I}
+\newcommand{\eE}{\mathcal E}
+\newcommand{\fF}{\mathscr F}
+\newcommand{\qQ}{\mathcal Q}
+\newcommand{\tT}{\mathcal T}
+\newcommand{\xX}{\mathcal X}
+\newcommand{\yY}{\mathcal Y}
+\newcommand{\rR}{\mathcal R}
+\newcommand{\zZ}{\mathcal Z}
+\newcommand{\wW}{\mathcal W}
+\newcommand{\uU}{\mathcal U}
+\newcommand{\lL}{\mathcal L}
+
+\newcommand{\mM}{\mathcal M}
+
+
+\newcommand{\vV}{\mathcal V}
+
+\newcommand{\Bsf}{\mathsf B}
+\newcommand{\Hsf}{\mathsf H}
+\newcommand{\Vsf}{\mathsf V}
+
+\newcommand{\BB}{\mathbbm B}
+\newcommand{\DD}{\mathbbm D}
+\newcommand{\RR}{\mathbbm R}
+\newcommand{\CC}{\mathbbm C}
+\newcommand{\QQ}{\mathbbm Q}
+\newcommand{\NN}{\mathbbm N}
+\newcommand{\GG}{\mathbbm G}
+\newcommand{\UU}{\mathbbm U}
+\newcommand{\TT}{\mathbbm T}
+\newcommand{\YY}{\mathbbm Y}
+\newcommand{\ZZ}{\mathbbm Z}
+\newcommand{\HH}{\mathbbm H}
+\newcommand{\MM}{\mathbbm M}
+\newcommand{\PP}{\mathbbm P}
+\newcommand{\EE}{\mathbbm E}
+
+
+\newcommand{\bH}{\mathbf H}
+\newcommand{\bT}{\mathbf T}
+
+\newcommand{\var}{\mathbbm V}
+
+\newcommand{\Asf}{\mathsf A}
+\newcommand{\Gsf}{\mathsf G}
+\newcommand{\Xsf}{\mathsf X}
+\newcommand{\Wsf}{\mathsf W}
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newcommand{\bP}{\mathbf P}
+\newcommand{\bQ}{\mathbf Q}
+\newcommand{\bE}{\mathbf E}
+\newcommand{\bM}{\mathbf M}
+\newcommand{\bX}{\mathbf X}
+\newcommand{\bY}{\mathbf Y}
+
+\newcommand{\listofauthorsname}{List of Authors}%
+
+% taken from https://tex.stackexchange.com/questions/174379/index-both-authors-and-subjects-with-authorindex-and-makeindex
+
+\newcommand{\subjectindex}{%
+\phantomsection%
+\printindex
+}%
+
+\newcommand{\lopx}{\mathcal{L}(\RR^\Xsf)}
+\newcommand{\lopw}{\mathcal{L}(\RR^\Wsf)}
+\newcommand{\lopz}{\mathcal{L}(\RR^\Zsf)}
+
+\newcommand{\mopx}{\mathcal{M}(\RR^\Xsf)}
+\newcommand{\mopw}{\mathcal{M}(\RR^\Wsf)}
+\newcommand{\mopz}{\mathcal{M}(\RR^\Zsf)}
+\newcommand{\mopy}{\mathcal{M}(\RR^\Ysf)}
+
+
+\newcommand{\iopx}{\mathcal{I}(\RR^\Xsf)}
+\newcommand{\iopw}{\mathcal{I}(\RR^\Wsf)}
+\newcommand{\iopz}{\mathcal{I}(\RR^\Zsf)}
+\newcommand{\iopy}{\mathcal{I}(\RR^\Ysf)}
+
+%%%%%%%%%%% operators %%%%%%%%%%%%
+
+\DeclareMathOperator{\Fix}{fix}  % fixed point
+\DeclareMathOperator{\Exp}{Exp}  % exponential draw
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{null}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\corr}{Corr}
+\DeclareMathOperator{\mse}{mse}
+\DeclareMathOperator{\se}{se}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\dimension}{dim}
+\DeclareMathOperator{\epi}{epi}
+\DeclareMathOperator{\vecop}{vec}
+
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+
+\DeclareMathOperator{\csum}{colsum} % column sum
+\DeclareMathOperator{\rsum}{rowsum} % row sum
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+    #2%
+    \def\@currentlabel{#2}%
+    \phantomsection\label{#1}\endgroup
+}
+\makeatother
+
+\setbeamertemplate{caption}{\insertcaption}
+
+\setbeamerfont{caption}{size=\Large}
+%\setbeamerfont{caption name}{size=\large}
+
+\definecolor{darkbrown}{rgb}{0.4, 0.26, 0.13}
+\newcommand{\boldbrown}[1]{\textbf{\textcolor{darkred}{#1}}}
+\newcommand{\brown}[1]{\textcolor{darkred}{#1}}
+\newcommand{\darkbrown}[1]{\textcolor{darkbrown}{#1}}
+\newcommand{\boldteal}[1]{\textbf{\textcolor{teal}{#1}}}
+\newcommand{\emp}[1]{\textbf{#1}}
+
+ \date[\today]{}

@@ -1,4 +1,6 @@
-\input{preamble}
+\documentclass[xcolor=dvipsnames, 10pt]{beamer}  
+
+\input{../../../beamer_preamble}
 
 \title{Deep Learning}
 
@@ -33,13 +35,16 @@
 \end{frame}
 
 
+\section{ANNs}
+
 \begin{frame}
     
-    \brown{Artificial neural networks (ANNs)} are the core of deep learning
+    \boldbrown{Artificial neural networks (ANNs)} are the core of deep learning
 
         \vspace{0.5em}
-    ``Deep learning'' means training ANNs with several hidden layers
+    Deep learning = \brown{training ANNs with multiple hidden layers}
 
+        \vspace{0.5em}
         \vspace{0.5em}
     Major successes:
     %
@@ -573,6 +578,7 @@
 \end{frame}
 
 
+\section{Training ANNs}
 
 \begin{frame}{Training}
     
@@ -970,15 +976,45 @@
 
 \section{DL with JAX}
 
-\begin{frame}{DL with JaX}
+\begin{frame}{DL with JAX}
+    
+    \begin{figure}
+        \centering
+        \scalebox{1}{\includegraphics{jax.png}}
+    \end{figure}
+
+    \medskip
+    \medskip
+    \medskip
+
+    ``JAX is a Python library designed for high-performance numerical computing,
+    especially machine learning research.''
+
+    ``Its API for numerical functions is based on NumPy.''
+
+    ``Both Python and NumPy are widely used and familiar, making JAX simple,
+    flexible, and easy to adopt.''
+
+\end{frame}
+
+
+\begin{frame}
     
     JAX is more general-purpose than PyTorch or TensorFlow 
 
     \begin{itemize}
-        \item Both explicitly designed for deep learning
+        \item PT and TF both explicitly designed for deep learning
+            \medskip
+        \item JAX is a platform for scientific computing designed with machine
+            learning / AI applications in mind
     \end{itemize}
 
-    But DL is the most important use-case
+
+    \medskip
+    \medskip
+    \medskip
+    \medskip
+    DL in JAX on one slide:
 
 \end{frame}
 
@@ -987,16 +1023,15 @@
 \begin{frame}[fragile]
 
     \begin{minted}{python}
-@jax.jit
-def f(θ, x):
+def f(θ, x, σ=jnp.tanh):
     for W, b in θ:
-        x = jnp.tanh(x @ W + b)
+        x = σ(x @ W + b)
     return x
 
 def loss(θ, x, y):
   return jnp.sum((y - f(θ, x))**2)
 
-loss_gradient = grad(loss)   
+loss_gradient = jit(grad(loss))
 
 def train(θ, x_data, y_data):
     for i in range(m):
