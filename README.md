@@ -47,6 +47,7 @@
   * Tuesday morning: Course overview, AI pair programming
     * [Introduction](tuesday/morning/intro_slides/main.pdf)
     * [Coding with AI](tuesday/morning/claude_exercise/ex.pdf)
+    * Quick [Colab](https://colab.research.google.com/) intro
     * [Python for Scientific Computing](https://python-programming.quantecon.org/need_for_speed.html)
     * [JAX](https://python-programming.quantecon.org/jax_intro.html)
     * [NumPy vs Numba vs JAX](https://python-programming.quantecon.org/numpy_vs_numba_vs_jax.html)
