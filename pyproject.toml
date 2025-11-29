@@ -5,6 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "fastparquet>=2024.11.0",
+    "folium>=0.20.0",
+    "geodatasets>=2024.8.0",
+    "geopandas>=1.1.1",
     "jax>=0.8.1",
     "jupyter>=1.1.1",
     "matplotlib>=3.10.7",
@@ -13,6 +17,9 @@ dependencies = [
     "numpyro>=0.19.0",
     "pandas>=2.3.3",
     "polars>=1.35.2",
+    "pyarrow>=22.0.0",
+    "pyproj>=3.7.2",
     "quantecon>=0.10.1",
     "seaborn>=0.13.2",
+    "zstandard>=0.25.0",
 ]

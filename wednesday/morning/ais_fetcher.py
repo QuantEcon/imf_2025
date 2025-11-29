@@ -7,7 +7,9 @@ import requests
 marine_cadastre_base_url = (
     "https://coast.noaa.gov" + "/htdata/CMSP/AISDataHandler" + "/{year}/"
 )
-ais_file_matcher = re.compile(r"^ais-\d{4}-\d{2}-\d{2}\.[a-z]+")
+ais_file_matcher = re.compile(
+    r"^ais[-_]\d{4}[-_]\d{2}[-_]\d{2}\.[a-z]+", re.IGNORECASE
+)
 
 
 def fetch_ais_data(year):
@@ -27,6 +29,8 @@ def fetch_ais_data(year):
             filename = link.text
             download_link = year_base_url + link.attrs["href"]
 
+            print(f"\tFound match: {filename}")
+            print(f"\tDownloading: {download_link}")
             res = requests.get(download_link)
 
             with open(f"wednesday/morning/data/{year}/{filename}", "wb") as f:
