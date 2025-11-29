@@ -6,33 +6,17 @@
 
   Open source scientific computing environments built around the Python
   programming language have expanded rapidly in recent years. They now form the
-  dominant paradigm in artificial intelligence and many fields within the natural
-  sciences.  Economists can greatly enhance their modeling and data processing
-  capabilities by exploiting Python's latest scientific ecosystem.  This course
-  will cover the Python scientific libraries, including new developments driven by
-  artificial intelligence.  We will discuss their use for policy applications,
-  with a slight bias towards modeling and macroeconomics.
+  dominant paradigm in artificial intelligence and many fields within the
+  natural sciences.  Economists can significantly enhance their modeling and
+  data processing capabilities by building or updating their knowledge of
+  Python's scientific ecosystem.  This course will cover the Python scientific
+  libraries, emphasizing new developments driven by artificial intelligence.  We
+  will discuss their use for policy applications, with a slight bias towards
+  modeling and macroeconomics.
 
-  Relative to the course we ran at the IMF in 2024, there will be less emphasis on
-  Python foundations and more emphasis on AI.
-
-## Prerequisites
-
-  We will assume that attendees are familiar with the basics of (a) Python  and
-  (b) Jupyter notebooks.
-
-  Those who lack such foundations but wish to attend should read the following
-  lectures in the QuantEcon Python Programming lecture series.
-
-  * https://python-programming.quantecon.org/getting_started.html
-  * https://python-programming.quantecon.org/python_by_example.html
-
-  (Those who have time will benefit from reading the next few lectures as well.)
-
-  If you do not have access to a local install, you can run these lectures by
-  clicking the "play" icon top right, selecting Colab, and clicking on "Launch
-  Notebook".
-
+  Relative to the course we ran at the IMF in 2024, there will be less emphasis
+  on Python foundations and more emphasis on AI and its implications for
+  economic policy analysis.
 
 ## Times and Dates
 
@@ -56,12 +40,31 @@
   Operations Research.  In 2016 he co-founded QuantEcon with Thomas J. Sargent.
 
 
-
 ## Syllabus
 
-  * Monday morning: Search and household problems I
-  * Monday afternoon: Search and household problems II
-  * Tuesday morning: Data wrangling: Pandas and polars
-  * Tuesday afternoon: Data science and Bayesian analysis
-  * Wednesday morning: Introduction to deep learning
-  * Wednesday afternoon: Reinforcement learning
+  * Tuesday morning: Course overview, AI pair programming
+  * Tuesday afternoon: Household problems (DP and EGM) via JAX 
+  * Wednesday morning: Data wrangling: Pandas and polars
+  * Wednesday afternoon: Data science and Bayesian analysis
+  * Thursday morning: Introduction to deep learning
+  * Thursday afternoon: Reinforcement learning
+
+
+## Computing Environment
+
+For live coding at the workshop, we recommend [Colab](https://colab.research.google.com/).
+
+## Prerequisites
+
+  We will assume attendees are familiar with the basics of (a) Python and
+  (b) Colab and/or Jupyter notebooks.
+
+  Those who lack such foundations but wish to attend should read the following
+  lectures in the QuantEcon Python Programming lecture series.
+
+  * https://python-programming.quantecon.org/python_by_example.html
+  * https://python-programming.quantecon.org/functions.html
+
+  You can run these lectures by clicking the "play" icon top right, selecting
+  Colab, and clicking on "Launch Notebook".
+
