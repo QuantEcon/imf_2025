@@ -90,53 +90,75 @@
 
 
 \begin{frame}
-    \frametitle{Forecasting}
+    \frametitle{Example: Weather Forecasting}
+    
+    Used for
+
+    \begin{itemize}
+        \item Agriculture 
+        \item Energy (e.g., power output across wind farms)
+        \item Construction 
+        \item Flight paths
+        \item Global supply chains 
+        \item Retail and e-commerce
+        \item Disaster management (cyclones, fires, etc.)
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+    
+    2024: 
+
+    \begin{itemize}
+        \item ``ECMWF's model is considered the gold standard for
+            medium-term weather forecasting\ldots 
+            Google DeepMind claims to beat it 90\% of the time\ldots''
+    \end{itemize}
+
+    \vspace{0.5em}
+    Mid 2025:
+
+    \begin{itemize}
+        \item ``Google's GenCast model outdid the ECMWF forecasts 97.2 percent of the time
+            when predicting 1,320 global atmospheric features''
+    \end{itemize}
+
+
+    \vspace{0.5em}
+    Nov 2025
+
+    \begin{itemize}
+        \item ``WeatherNext 2 surpasses our previous state-of-the-art WeatherNext model on
+            99.9\% of variables and lead times (0-15 days)''
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+
+    WeatherNext 2:
     
     \begin{figure}
        \centering
-       \scalebox{0.22}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{weather.pdf}}
+       \scalebox{0.28}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{weathernext2.png}}
     \end{figure}
 
 \end{frame}
 
-
 \begin{frame}
     
-    ``ECMWF's model is considered the gold standard for
-        medium-term weather forecasting\ldots 
-        Google DeepMind claims to beat it 90\% of the time\ldots''
-
-    $\quad \qquad$ $\quad \qquad$ --- MIT Technology Review 2024 \vspace{0.5em}
-
-    \vspace{0.5em}
-    \vspace{0.5em}
-    \vspace{0.5em}
-
-    ``Google's GenCast model outdid the ECMWF forecasts 97.2 percent of the time
-    when predicting 1,320 global atmospheric features''
-
-
-    $\quad \qquad$ $\quad \qquad$ --- Weatherstats 2025 \vspace{0.5em}
-
-    \vspace{0.5em}
-    \vspace{0.5em}
-
-    ``Traditional forecasting models are big, complex computer algorithms [that]
-    take hours to run. AI models can create forecasts in just seconds.'' 
-
-\end{frame}
-
-
-\begin{frame}
-    
-    Also successful in predicting 
+    AI / deep learning also successful in predicting 
 
     \begin{itemize}
         \item electricity prices
         \item renewable energy supply
         \item fraudulent transations
         \item patient admission rates in hospitals
-        \item sales and demand (e-commerce)
+        \item sales and demand 
         \item traffic flow
         \item delivery times
         \item etc.
@@ -165,24 +187,43 @@
 \end{frame}
 
 \begin{frame}{Training LLMs 1.0}
+
+    Collect a large amount of text
     
-    Inner loop:
+    Set $i=1$ and initialize ANN parameter vector $\theta$
+
+    \boldteal{Inner loop}
 
     \begin{enumerate}
-        \item Learning machine reads in $n$ tokens (input, context window)
-        \item Machine assigns pmf over next token (output)
-        \item Prediction compared to observed token using KL distance
-        \item Loss recorded and window shifted forward one token
+        \item Read in tokens $i, i+1, \ldots, i+n$ (input)
+        \item Assign $p = (p_1, \ldots, p_m)$ as prediction of next token (output)
+        \item Compare $p$ to observed token $j$ using KL distance:
+            %
+            \begin{equation*}
+                \ell_i(\theta) := - \ln p_j
+            \end{equation*}
+            %
+        \item Set $i=i+1$ and go to Step 1
     \end{enumerate}
 
-    \medskip
-    Outer loop:
+\end{frame}
+
+
+\begin{frame}
+    
+    \boldteal{Outer loop}:
 
     \begin{enumerate}
-        \item Accumulate losses over the batch to build loss function
-        \item Evaluate gradient of loss function at current parameters
-        \item Update parameters to reduce loss
+        \item Perform inner loop, evaluate total loss $\ell(\theta) = \sum_i^b \ell_i(\theta)$
+            \medskip
+        \item Evaluate gradient $\nabla \ell(\theta)$
+            \medskip
+        \item Update parameters: 
+            $$\theta' = \theta - \lambda \nabla \ell(\theta)$$
+            \medskip
+        \item Go to step 1
     \end{enumerate}
+
 
 \end{frame}
 
@@ -194,6 +235,16 @@
        \scalebox{0.5}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{gemini.pdf}}
     \end{figure}
 
+\end{frame}
+
+\begin{frame}{Gemini 3}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{0.072}{\includegraphics{gemini_3.png}}
+       \end{center}
+    \end{figure}
+    
 \end{frame}
 
 
@@ -215,7 +266,7 @@
     \begin{itemize}
         \item Human raters evaluate my outputs for logical coherence
         \item A reward model is trained to predict these human preferences
-        \item Training process uses RL via proximal policy optimization
+        \item Training process uses RL via policy gradient methods
     \end{itemize}
 
     \medskip
@@ -224,35 +275,27 @@
 \end{frame}
 
 
-\begin{frame}{Gemini 3}
-
-    \begin{figure}
-       \begin{center}
-        \scalebox{0.072}{\includegraphics{gemini_3.png}}
-       \end{center}
-    \end{figure}
-    
-\end{frame}
-
-\begin{frame}{Vending Bench}
+\begin{frame}{Example: Vending Bench}
 
     Agents must autonomously run a vending machine business for a year.
 
     \medskip
     \begin{itemize}
-        \item Suppliers may and actively try to exploit the agent 
+        \item Goal is to maximize profits over the long run
         \medskip
-        \item Negotiation is essential to success
+        \item Some suppliers actively try to exploit the agent 
         \medskip
         \item Deliveries can be delayed, suppliers can go out of business
-        \medskip
-        \item Agents must build robust supply chains and always have a plan B
         \medskip
         \item Unhappy customers can demand costly refunds at any time
     \end{itemize}
 
+
+    \begin{itemize}
+        \item Negotiation is essential to success
         \medskip
-    \url{https://andonlabs.com/evals/vending-bench-2}
+        \item Agents must build robust supply chains and always have a plan B
+    \end{itemize}
 
 \end{frame}
 
@@ -261,9 +304,12 @@
     
     \begin{figure}
        \begin{center}
-        \scalebox{0.36}{\includegraphics{vending.png}}
+        \scalebox{0.34}{\includegraphics{vending.png}}
        \end{center}
     \end{figure}
+
+        \medskip
+    \url{https://andonlabs.com/evals/vending-bench-2}
     
 \end{frame}
 
@@ -367,36 +413,51 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Autonomous agents}
 
-    \emp{Claim by Deepnote:}
+    \emp{Deepnote:}
     
     \medskip
     ``AI superpowers for every data analyst and data scientist
 
     \medskip
-    Become a senior data analyst overnight.
+    Become a senior data analyst \brown{overnight}.
 
     \medskip
     Describe what you want to do and Deepnote will automagically query, analyze, and interpret data for you. 
 
     \medskip
-    \brown{No coding skills necessary.}''
-
-    \medskip
-    \medskip
-    \medskip
-    \pause
-
-    hmmmm....
+    \boldbrown{No coding skills necessary.}''
 
 \end{frame}
 
 
 
 \begin{frame}
-    
-    Research teams are pushing hard to build ever-more autonomous coding agents.
+
+    \begin{columns}[T]
+        \begin{column}{0.75\textwidth}
+            $\quad\quad$ Hmmmm....
+        \end{column}
+        \begin{column}{0.25\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{simpson.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+
+    \medskip
+    \medskip
+    \medskip
+    \medskip
+    \medskip
+    \medskip
+    \medskip
+
+    \pause
+
+    Certainly research teams are pushing hard to build ever-more autonomous coding agents.
 
 \end{frame}
 
@@ -506,9 +567,14 @@
         \item Happy to generate vast code bases that are hard to understand
     \end{itemize}
 
-        \vspace{0.5em}
-        \vspace{0.5em}
-    You still need to be the architect!
+
+
+    \vspace{0.5em}
+    Lesson: \boldteal{You still need to be the architect!}
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+    We'll return to this later...
 
 \end{frame}
 
@@ -929,7 +995,7 @@ loss_gradient = grad(loss)   # exact automatic differentiation
         \vspace{0.2em}
         \item This revolution will have a huge impact on science
         \vspace{0.2em}
-        \item What impact on economics?
+        \item What impact on economic modeling / policy analysis?
     \end{itemize}
 
         \vspace{0.2em}
@@ -945,7 +1011,7 @@ loss_gradient = grad(loss)   # exact automatic differentiation
             \vspace{0.2em}
         \item Better understanding of core tools (hardware / software)
             \vspace{0.2em}
-        \item Apply knowledge to economic modeling 
+        \item Apply knowledge to economic modeling / data analysis
             \vspace{0.2em}
         \item Explore policy implications
     \end{itemize}
