@@ -93,6 +93,16 @@
 
 \end{frame}
 
+\begin{frame}
+
+    WeatherNext 2:
+    
+    \begin{figure}
+       \centering
+       \scalebox{0.28}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{weathernext2.png}}
+    \end{figure}
+
+\end{frame}
 
 
 \begin{frame}
@@ -122,19 +132,8 @@
             99.9\% of variables and lead times (0-15 days)''
     \end{itemize}
 
-
 \end{frame}
 
-\begin{frame}
-
-    WeatherNext 2:
-    
-    \begin{figure}
-       \centering
-       \scalebox{0.28}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{weathernext2.png}}
-    \end{figure}
-
-\end{frame}
 
 \begin{frame}
     
@@ -144,7 +143,6 @@
         \item electricity prices
         \item renewable energy supply
         \item fraudulent transations
-        \item patient admission rates in hospitals
         \item sales and demand 
         \item traffic flow
         \item delivery times
@@ -177,10 +175,11 @@
 
     Collect a large amount of text
     
-    Set $i=1$ and initialize ANN parameter vector $\theta$
+    \medskip
+    Fix offset $n \in \NN$, set $i=1$, initialize ANN parameters $\theta$
 
     \boldteal{Inner loop}
-
+    %
     \begin{enumerate}
         \item Read in tokens $i, i+1, \ldots, i+n$ (input)
         \item Assign $p = (p_1, \ldots, p_m)$ as prediction of next token (output)
@@ -201,9 +200,14 @@
     \boldteal{Outer loop}:
 
     \begin{enumerate}
-        \item Perform inner loop, evaluate total loss $\ell(\theta) = \sum_i^b \ell_i(\theta)$
-            \medskip
-        \item Evaluate gradient $\nabla \ell(\theta)$
+        \item Perform inner loop, evaluate total loss and its gradient:
+            %
+            \begin{equation*}
+                \ell(\theta) = \sum_i^b \ell_i(\theta),
+                \qquad
+                \nabla \ell(\theta) = \sum_i^b \nabla \ell_i(\theta)
+            \end{equation*}
+            %
             \medskip
         \item Update parameters: 
             $$\theta' = \theta - \lambda \nabla \ell(\theta)$$
