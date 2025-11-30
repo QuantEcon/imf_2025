@@ -672,11 +672,10 @@
 \begin{frame}
 
     \boldteal{Nonlinear regression}: Choose parametric class
-    $\{f_\theta\}_{\theta \in \Theta}$ and minimize the empirical loss
+    $\{f_\theta\}_{\theta \in \Theta}$ and minimize 
     %
     \begin{equation*}
         \ell(\theta) := \frac{1}{n}\sum_{i=1}^n (y_i - f_\theta(x_i))^2
-        \quad \st \quad \theta \in \Theta
     \end{equation*}
 
 
@@ -684,10 +683,8 @@
     \vspace{0.5em}
     \vspace{0.5em}
     \boldteal{Deep learning}: Nonlinear regression when $\{f_\theta\}$ is a
-    class of ANNs.
+    class of ANNs:
 
-    \vspace{0.5em}
-    Thus,
     %
     \begin{equation*}
         f_\theta
@@ -730,11 +727,12 @@
     \begin{itemize}
         \item take a step in the opposite direction to the grad vector
         \vspace{0.5em}
-        \item $\lambda_k$ is the \emp{learning rate} 
+        \item $\lambda_k$ is the \boldbrown{learning rate} 
         \vspace{0.5em}
         \item iterate until hit a stopping condition
         \vspace{0.5em}
-        \item in practice replace $\ell(\theta)$ with batched loss $\to$ \emp{SGD}
+        \item in practice replace $\ell(\theta)$ with batched loss $\to$
+            \boldbrown{SGD}
             %
             \begin{equation*}
                 \frac{1}{|B|}\sum_{i \in B} (y_i - f_\theta(x_i))^2
@@ -1242,21 +1240,20 @@ def train(θ, x_data, y_data, λ=0.01, m=1_000):
 \begin{frame}[fragile]
     
     \begin{minted}{python}
-# Apply gradient descent step to all parameters
-def sgd_update(θ, grads, λ=0.01):
-    return jax.tree.map(
-        lambda p, g: p - λ * g,  # θ - λ * gradient_vector
-        theta, 
-        grads
-    )
+def loss_fn(θ, x, y):
+    pass  # Details omitted
 
-# Differential the loss function with respect to θ
+def sgd_rule(p, g, λ=0.01): 
+    return p - λ * g  # Update rule for vectors
+
+# Differentiate the loss function with respect to θ
 loss_grad = jit(grad(loss_fn))
+
 # Calculate pytree of gradients at θ
 grads = loss_grad(θ, x, y)
 
 # Update all parameters at once
-new_θ = sgd_update(θ, grads)    
+new_θ = jax.tree.map(sgd_rule, θ, grads)
     \end{minted}
 
 \end{frame}
