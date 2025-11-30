@@ -4,7 +4,7 @@
 
 \title{Deep Learning}
 
-\subtitle{Prepared for the IMF Workshop on Computational Economics (Dec 2025)}
+\subtitle{Prepared for the IMF Workshop on Computational Economics}
 
 \author{John Stachurski}
 
@@ -30,6 +30,7 @@
         \vspace{0.5em}
         \item Why is DL so successful?
         \vspace{0.5em}
+        \item Rolling our own: DL with JAX
     \end{itemize}
 
 \end{frame}
@@ -42,7 +43,7 @@
     \boldbrown{Artificial neural networks (ANNs)} are the core of deep learning
 
         \vspace{0.5em}
-    Deep learning = \brown{training ANNs with multiple hidden layers}
+    DL = \brown{training ANNs with multiple hidden layers}
 
         \vspace{0.5em}
         \vspace{0.5em}
@@ -502,6 +503,32 @@
 
 \end{frame}
 
+\begin{frame}{Definition of an ANN}
+
+    Let's now put this together
+    
+    \medskip
+
+    An ANN is a function $f_\theta$ from $\RR^n$ to $\RR^m$ having the form
+    %
+    \begin{equation*}
+        f_\theta
+        = G_{m} \circ G_{m-1} \circ \cdots \circ G_{2}  \circ G_{1}
+    \end{equation*}
+    %
+    where
+    %
+    \begin{itemize}
+        \vspace{0.5em}
+        \item $\sigma_\ell$ is an activation function
+        \vspace{0.5em}
+        \item $\theta := \{W_1, b_1, W_2, b_2, \ldots, W_m, b_m\}$
+        \vspace{0.5em}
+        \item $G_{\ell} (x) = \sigma_\ell(x W_\ell + b_\ell)$ 
+    \end{itemize}
+
+\end{frame}
+
 
 \begin{frame}{Universal function approximation I}
 
@@ -513,17 +540,15 @@
         \item $\sigma$ be a continuous map from $\RR$ to itself
     \end{itemize}
 
+    \medskip
     If $\sigma$ is not polynomial, then, for every $\varepsilon > 0$, 
-    there exist matrices $A, C$ and vector $b$  such that
+    there exist an ANN $f_\theta \colon \RR^n \to \RR^m$  such that
     %
     \begin{equation*}
-        \sup_{x \in K} \left\| f(x) - C \sigma(A x + b) \right\| 
+        \sup_{x \in K} \left\| f(x) - f_\theta(x) \right\| 
         < \varepsilon
     \end{equation*}
     %
-
-    \medskip
-    (The function $\sigma$ is applied component-wise) 
 
 \end{frame}
 
@@ -564,7 +589,7 @@
     \begin{itemize}
         \item \brown{polynomials} in $C_0(K) :=$ continuous functions on compacts 
             \vspace{0.4em}
-        \item finite linear combinations of an \brown{ONS} in a Hilbert space
+        \item \brown{linear span of an ONS} in a Hilbert space
             \vspace{0.4em}
         \item \brown{SVMs} with RBF kernels in reproducing kernel Hilbert space
             \vspace{0.4em}
@@ -592,12 +617,34 @@
 
 \begin{frame}
     
-    Aim: Learn to predict output $y$ from input $x$
+
+    An ANN is just a particular function $f_\theta$
+
+    \medskip
+    We want an ANN that is good at ``prediction''
+
+    \medskip
+    Steps
+    %
+    \begin{enumerate}
+        \item Observe data
+        \item Adjust the parameter vector $\theta$ to ``fit'' the data
+    \end{enumerate}
+
+    \medskip
+    \medskip
+    Let's clarify these ideas
+
+\end{frame}
+
+\begin{frame}
+    
+    Suppose we wish to to predict output $y$ from input $x$
     %
     \begin{itemize}
         \item $x \in \RR^k$
         \vspace{0.5em}
-        \item $y \in \RR$  (regression problem)
+        \item $y \in \RR$  (regression problem, scalar output, for simplicity)
     \end{itemize}
 
     \Egs
@@ -624,7 +671,8 @@
 
 \begin{frame}
 
-    Nonlinear regression: choose model $\{f_\theta\}_{\theta \in \Theta}$ and minimize the empirical loss
+    \boldteal{Nonlinear regression}: Choose parametric class
+    $\{f_\theta\}_{\theta \in \Theta}$ and minimize the empirical loss
     %
     \begin{equation*}
         \ell(\theta) := \frac{1}{n}\sum_{i=1}^n (y_i - f_\theta(x_i))^2
@@ -634,7 +682,12 @@
 
     \pause
     \vspace{0.5em}
-    In the case of ANNs, we consider all $f_\theta$ having the form
+    \vspace{0.5em}
+    \boldteal{Deep learning}: Nonlinear regression when $\{f_\theta\}$ is a
+    class of ANNs.
+
+    \vspace{0.5em}
+    Thus,
     %
     \begin{equation*}
         f_\theta
@@ -715,12 +768,20 @@
 \end{frame}
 
 
+\section{Why do they work?}
 
-\begin{frame}{A mystery}
+\begin{frame}{Why do they work?}
+
+    Why does DL work so well in so many cases??
+
+    \medskip
+    \medskip
+    \medskip
     
-    What about overfitting?
+    Related question: what about overfitting?
 
 \end{frame}
+
 
 \begin{frame}
     
@@ -762,15 +823,15 @@
     \addplot[color={rgb,255:red,255; green,127; blue,14}, line width=2pt, name path=test] {0.4*exp(-0.7*x) + 0.15*exp(0.35*(x-5)) + 0.42};
 
     % curve labels
-    \node[color={rgb,255:red,31; green,119; blue,180}, font=\small\bfseries] at (8,0.25) {training loss};
-    \node[color={rgb,255:red,255; green,127; blue,14}, font=\small\bfseries] at (7,0.55) {test loss};
+    \node[color={rgb,255:red,31; green,119; blue,180}, font=\small\bfseries] at (axis cs:8,0.25) {training loss};
+    \node[color={rgb,255:red,255; green,127; blue,14}, font=\small\bfseries] at (axis cs:7,0.55) {test loss};
 
     % Underfitting and overfitting regions
-    \draw[<->, >=stealth, gray, line width=1pt] (3.2,0.8) -- (0.2,0.8);
-    \node[align=center, gray, font=\small\bfseries] at (1.9, 0.9) {underfitting};
+    \draw[<->, >=stealth, gray, line width=1pt] (axis cs:3.2,0.8) -- (axis cs:0.2,0.8);
+    \node[align=center, gray, font=\small\bfseries] at (axis cs:1.9, 0.9) {underfitting};
 
-    \draw[<->, >=stealth, gray, line width=1pt] (4.3,0.8) -- (9.8,0.8);
-    \node[align=center, gray, font=\small\bfseries] at (6, 0.9) {overfitting};
+    \draw[<->, >=stealth, gray, line width=1pt] (axis cs:4.3,0.8) -- (axis cs:9.8,0.8);
+    \node[align=center, gray, font=\small\bfseries] at (axis cs:6, 0.9) {overfitting};
 
     % Fill regions
     % \path[name path=axis] (axis cs:0,0) -- (axis cs:10,0);
@@ -799,9 +860,7 @@
     \emp{Answer 2} Engineers avoid using full complexity of the model
 
     \begin{itemize}
-        \item Early stopping halts training when test loss starts to rise
-        \vspace{0.5em}
-        \item Drop out -- shut down some neurons during training
+        \item E.g., early stopping halts training when test loss starts to rise
     \end{itemize}
 
 
@@ -809,12 +868,10 @@
 
 \begin{frame}
     
-    \textbf{Answer 3} Adding randomization to training prevents overfitting
+    \textbf{Answer 3} Adding randomization prevents overfitting
 
     \begin{itemize}
-        \item Related to benefits of random dropout (randomization)
-        \vspace{0.5em}
-        \item Related techniques in DL such as DropConnect and Stochastic Depth
+        \item E.g., DropConnect and Stochastic Depth
         \vspace{0.5em}
         \item Stochastic gradient descent injects randomness
     \end{itemize}
@@ -836,7 +893,7 @@
 
 \begin{frame}
     
-    \textbf{Answer 4} Modern architectures have inductive biases 
+    \textbf{Answer 4} Modern architectures have inductive biases built in
 
             \vspace{0.5em}
             \vspace{0.5em}
@@ -924,7 +981,7 @@
 
 
     \begin{itemize}
-        \item Easy to understand with limited maths background
+        \item Can understand without advanced math background
         \vspace{0.5em}
         \item Scales well to high dimensions 
         \vspace{0.5em}
@@ -1033,7 +1090,7 @@ def loss(θ, x, y):
 
 loss_gradient = jit(grad(loss))
 
-def train(θ, x_data, y_data):
+def train(θ, x_data, y_data, λ=0.01, m=1_000):
     for i in range(m):
         θ = θ - λ * loss_gradient(θ, x_data, y_data)
     return θ
@@ -1042,39 +1099,29 @@ def train(θ, x_data, y_data):
 \end{frame}
 
 \begin{frame}
-    \frametitle{JAX PyTrees}
+    \frametitle{JAX pytrees}
 
-    Consider a function of the form
-    %
-    \begin{equation*}
-        f_\theta
-        = G_{m} \circ G_{m-1} \circ \cdots \circ G_{2}  \circ G_{1}
-    \end{equation*}
-    %
-    where
-    %
+    The previous code imagined $\theta$ as a list of lists
+
+    In practice, we might want to use more sophisticated data structures
+
     \begin{itemize}
-        \item $G_{\ell} x = \sigma_\ell(x W_\ell + b_\ell)$ 
-            for $\ell = 1, \ldots, m$
-        \vspace{0.5em}
-        \item $\theta$ represents the ``vector'' of all parameters
-        \vspace{0.5em}
-        \item $\sigma_\ell$ is a given function
+        \item a list of dictionaries?
+        \item a dictionary of dictionaries?
+        \item a list of namedtuples?
+        \item a list of classes?
+        \item a list of a dictionary of classes?
     \end{itemize}
 
-        \vspace{0.5em}
-        \vspace{0.5em}
-    The idea that the vector $\theta$ contains all parameters is conceptually
-    useful but awkward within code\ldots
-
-
+    \medskip
+    In that case, how would we implement the gradient descent routine above??
 
 \end{frame}
 
 
 \begin{frame}
 
-    To handle these kinds of situations we can use PyTrees
+    To handle these kinds of situations we can use pytrees
     
     \begin{itemize}
         \item A tree-like data structure built from Python containers
@@ -1115,9 +1162,9 @@ def train(θ, x_data, y_data):
     JAX can
 
     \begin{itemize}
-        \item apply functions to all leaves in a PyTree structure
+        \item apply functions to all leaves in a pytrees structure
         \vspace{0.5em}
-        \item differentiate functions with respect to the leaves of PyTrees
+        \item differentiate functions with respect to the leaves of pytrees
         \vspace{0.5em}
         \item etc.
     \end{itemize}
@@ -1195,20 +1242,21 @@ def train(θ, x_data, y_data):
 \begin{frame}[fragile]
     
     \begin{minted}{python}
-# Apply gradient updates to all parameters
-def sgd_update(params, grads, learning_rate):
+# Apply gradient descent step to all parameters
+def sgd_update(θ, grads, λ=0.01):
     return jax.tree.map(
-        lambda p, g: p - learning_rate * g, 
-        params, 
+        lambda p, g: p - λ * g,  # θ - λ * gradient_vector
+        theta, 
         grads
     )
 
-# Calculate gradients (PyTree with same structure as params)
-loss_grad = jax.grad(loss_fn)
-grads = loss_grad(params, x, y)
+# Differential the loss function with respect to θ
+loss_grad = jit(grad(loss_fn))
+# Calculate pytree of gradients at θ
+grads = loss_grad(θ, x, y)
 
 # Update all parameters at once
-updated_params = sgd_update(params, grads, 0.01)    
+new_θ = sgd_update(θ, grads)    
     \end{minted}
 
 \end{frame}
