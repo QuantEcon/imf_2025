@@ -407,51 +407,11 @@
 
 \begin{frame}{Autonomous agents}
 
-    \emp{Deepnote:}
-    
-    \medskip
-    ``AI superpowers for every data analyst and data scientist
-
-    \medskip
-    Become a senior data analyst \brown{overnight}.
-
-    \medskip
-    Describe what you want to do and Deepnote will automagically query, analyze, and interpret data for you. 
-
-    \medskip
-    \boldbrown{No coding skills necessary.}''
+    Research teams are pushing hard to build ever-more autonomous coding
+    agents\ldots
 
 \end{frame}
 
-
-
-\begin{frame}
-
-    \begin{columns}[T]
-        \begin{column}{0.75\textwidth}
-            $\quad\quad$ Hmmmm....
-        \end{column}
-        \begin{column}{0.25\textwidth}
-            \begin{figure}
-                \centering
-                \includegraphics[width=\textwidth]{simpson.png}
-            \end{figure}
-        \end{column}
-    \end{columns}
-
-    \medskip
-    \medskip
-    \medskip
-    \medskip
-    \medskip
-    \medskip
-    \medskip
-
-    \pause
-
-    Certainly research teams are pushing hard to build ever-more autonomous coding agents.
-
-\end{frame}
 
 
 \begin{frame}{Example: AlphaEvolve} 
@@ -543,6 +503,41 @@
        \centering
        \scalebox{0.24}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{ds_star.png}}
     \end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Deepnote}
+    
+    \medskip
+    ``AI superpowers for every data analyst and data scientist
+
+    \medskip
+    Become a senior data analyst \brown{overnight}.
+
+    \medskip
+    Describe what you want to do and Deepnote will automagically query, analyze, and interpret data for you. 
+
+    \medskip
+    \boldbrown{No coding skills necessary.}''
+
+
+\end{frame}
+
+
+\begin{frame}
+
+    \begin{columns}[T]
+        \begin{column}{0.75\textwidth}
+            $\quad\quad$ Hmmmm....
+        \end{column}
+        \begin{column}{0.25\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{simpson.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -653,7 +648,7 @@
         \item Minimize loss 
             %
             \begin{equation*}
-                \ell(\theta) := \sum_{i=1}^n (y_i - f_\theta(x_i))^2
+                \ell(\theta) := \frac{1}{n} \sum_{i=1}^n (y_i - f_\theta(x_i))^2
                 \quad \st \quad \theta \in \Theta
             \end{equation*}
     \end{enumerate}
@@ -703,23 +698,8 @@
     Minimizing $\ell(\theta)$ -- what algorithm?
     
     \begin{figure}
-       \begin{center}
-        \scalebox{0.15}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{gdi.png}}
-       \end{center}
-    \end{figure}
-
-    Source: \url{https://danielkhv.com/}
-
-\end{frame}
-
-
-
-\begin{frame}
-    
-    \begin{figure}
-       \begin{center}
-        \scalebox{0.32}{\includegraphics{gradient_steepest_ascent.png}}
-       \end{center}
+       \centering
+       \scalebox{0.32}{\includegraphics{gradient_steepest_ascent.png}}
     \end{figure}
 
 \end{frame}
@@ -778,12 +758,12 @@
 \begin{frame}[fragile]
     \frametitle{Parallelization}
 
-    \begin{figure}
-       \begin{center}
-        \scalebox{0.22}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{dgx.png}}
-       \end{center}
-    \end{figure}
     
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.82\textwidth]{geforce.png}
+    \end{figure}
+
 \end{frame}
 
 
@@ -791,9 +771,8 @@
     \frametitle{Parallelization}
 
     \begin{figure}
-       \begin{center}
-        \includegraphics[width=0.82\textwidth]{geforce.png}
-       \end{center}
+        \centering
+        \scalebox{0.22}{\includegraphics[trim={0cm 0cm 0cm 0cm},clip]{dgx.png}}
     \end{figure}
     
 \end{frame}
@@ -853,12 +832,12 @@ from jax import grad
 
 def f(θ, x):
     # add details here
-    return prediction
+    return y_hat
 
 def loss(θ, x, y):
   return jnp.sum((y - f(θ, x))**2)
 
-loss_gradient = grad(loss)   # exact automatic differentiation
+loss_gradient = grad(loss)   # exact derivative
 θ = θ - λ * loss_gradient(θ, x_data, y_data)
     \end{minted}
 
