@@ -167,6 +167,31 @@ level: 2
 </div>
 
 ---
+layout: two-cols-header
+---
+
+# Toy environment
+
+We are going to get started by learning about reinforcement learning in famous the cliff-walking
+example from Sutton Barto.
+
+::left::
+
+The rules of the cliff-walking game are as follows:
+
+- You start at grid point (0, 0)
+- Your goal is to reach (11, 0)
+- You can go up, right, down, or left at each grid point.
+- Each step you take costs 1 unit of effort
+- There is a cliff that spans (0, 1) to (0, 11) and if you step on one of these squares then
+  it takes 100 units of effort to climb back up the cliff and start again
+
+
+::right::
+
+<img src="./assets/cliff_walking.png" alt="Cliff walking" style="position: relative; top: -9%; left: 20%; width: 60%; z-index: 1;">
+
+---
 
 Economists are starting to learn and apply these tools but there are a lot of opportunities left!
 

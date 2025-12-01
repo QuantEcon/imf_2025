@@ -76,6 +76,7 @@
     * [Neural Network Regression with JAX](https://jax.quantecon.org/jax_nn.html)
     * [Policy Gradient-Based Optimal Savings](https://jax.quantecon.org/ifp_dl.html)
   * Thursday afternoon: Reinforcement learning
+    * [Introduction to Reinforcement Learning](thursday/afternoon/rl_slides.pdf)
 
 
 ## Computing Environment
