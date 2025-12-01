@@ -26,9 +26,9 @@
             \medskip
         \item Coding with AI
             \medskip
-        \item AI mania --- impact on hardware and software
+        \item Surging AI investment --- impact on hardware and software
             \medskip
-        \item Consequences for economists
+        \item Current and future consequences for scientific computing
     \end{itemize}
     
 \end{frame}
@@ -75,9 +75,26 @@
 
 \end{frame}
 
+\begin{frame}{Forecasting}
+    
+    \begin{itemize}
+        \item Store and regional-level demand forecasting
+        \item Electricity demand
+        \item Renewable energy supply
+        \item Fraudulent transactions
+        \item Financial forecasting (volatility, risk)
+        \item Traffic flow
+        \item Delivery times
+        \item Weather
+        \item etc.
+    \end{itemize}
+
+\end{frame}
+
 
 \begin{frame}
-    \frametitle{Example: Weather Forecasting}
+
+    \boldbrown{Example: Weather Forecasting}
     
     Used for
 
@@ -135,22 +152,6 @@
 \end{frame}
 
 
-\begin{frame}
-    
-    AI / deep learning also successful in predicting 
-
-    \begin{itemize}
-        \item electricity prices
-        \item renewable energy supply
-        \item fraudulent transations
-        \item sales and demand 
-        \item traffic flow
-        \item delivery times
-        \item etc.
-    \end{itemize}
-
-\end{frame}
-
 
 \begin{frame}{LLMs}
     
@@ -176,17 +177,17 @@
     Collect a large amount of text
     
     \medskip
-    Fix offset $n \in \NN$, set $i=1$, initialize ANN parameters $\theta$
+    Set $i=1$, initialize ANN parameters $\theta$
 
     \boldteal{Inner loop}
     %
     \begin{enumerate}
-        \item Read in tokens $i, i+1, \ldots, i+n$ (input)
-        \item Assign $p = (p_1, \ldots, p_m)$ as prediction of next token (output)
+        \item Read in tokens $1, \ldots, i$ 
+        \item Assign $p = (p_1, \ldots, p_m)$ as prediction of token $i+1$
         \item Compare $p$ to observed token $j$ using KL distance:
             %
             \begin{equation*}
-                \ell_i(\theta) := - \ln p_j
+                \ell_{i+1}(\theta) := - \ln p_j
             \end{equation*}
             %
         \item Set $i=i+1$ and go to Step 1
@@ -347,7 +348,7 @@
 
     \medskip
     
-  Thank you! It was a great exercise working through this model. We accomplished quite a lot:
+  \brown{Thank you!} It was a great exercise working through this model. We accomplished quite a lot:
 
   \begin{itemize}
       \item Fixed critical bugs 
