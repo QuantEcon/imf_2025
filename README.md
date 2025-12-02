@@ -70,6 +70,8 @@
     * [Introduction to `polars`](wednesday/morning/polars.ipynb)
     * [Practice time! Parts 3+4](wednesday/morning/data_practice.ipynb)
   * Wednesday afternoon: Data science and Bayesian analysis
+    * [Bayesian stats refresher](wednesday/afternoon/bayesian_stats.ipynb)
+    * [Gaussian processes](wednesday/afternoon/gaussian_processes.ipynb)
   * Thursday morning: Introduction to deep learning
     * [Introduction to Deep Learning](thursday/morning/dl_slides/anns.pdf)
     * [Simple Neural Network Regression with Keras and JAX](https://jax.quantecon.org/keras.html)
@@ -77,6 +79,8 @@
     * [Policy Gradient-Based Optimal Savings](https://jax.quantecon.org/ifp_dl.html)
   * Thursday afternoon: Reinforcement learning
     * [Introduction to Reinforcement Learning](thursday/afternoon/rl_slides.pdf)
+    * [Temporal difference learning](thursday/afternoon/td_learning.ipynb)
+    * [Temporal difference exercises](thursday/afternoon/td_exercise.ipynb)
 
 
 ## Computing Environment
