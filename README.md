@@ -66,9 +66,9 @@
   * Wednesday morning: Data wrangling: Pandas and polars
     * [Modern data landscape and why Python](wednesday/morning/python_data_slides.pdf)
     * [Data wrangling with `pandas`](wednesday/morning/pandas.ipynb)
-    * [Practice time! Parts 1+2](wednesday/morning/data_practice.ipynb)
+    * [Practice time! Parts 1+2](wednesday/morning/data_practice_1.ipynb)
     * [Introduction to `polars`](wednesday/morning/polars.ipynb)
-    * [Practice time! Parts 3+4](wednesday/morning/data_practice.ipynb)
+    * [Practice time! Parts 3+4](wednesday/morning/data_practice_1.ipynb)
   * Wednesday afternoon: Data science and Bayesian analysis
     * [Bayesian stats refresher](wednesday/afternoon/bayesian_stats.ipynb)
     * [Gaussian processes](wednesday/afternoon/gaussian_processes.ipynb)
