@@ -88,14 +88,14 @@ typically measured at a monthly/quarterly/annual frequency which means we only h
 500-1,000 useful data points.
 
 Even survey data, like the Current Population Survey in the US, only collects data for ~60,000
-households per month which means that with 10 years of data we have ~7,000,000 monthly household
+households per month which means that with 10 years of data we have ~7,000,000 total household
 observations.
 
 <v-click>
 
-Today having 7,000,000 observations is considered to be "relatively small data". As the amount
-of data produced in the world expands, we need to be able to use tools that can keep up with the
-ever changing state of the world.
+For many problems, having 7,000,000 observations is now considered to be "relatively small data".
+As the amount of data produced in the world expands, we need to be able to use tools that can keep
+up with the ever changing state of the world.
 
 </v-click>
 
@@ -248,7 +248,7 @@ image: assets/chase_john_high_seas.png
 level: 2
 ---
 
-<h1 color="black" style="text-align: right;">"Proof" of us sailing the seas</h1>
+<h1 color="black" style="text-align: right;">"Proof" of another Chase+John sailing the seas</h1>
 
 ---
 
