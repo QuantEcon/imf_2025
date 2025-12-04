@@ -167,6 +167,13 @@ level: 2
 </div>
 
 ---
+
+# The Bitter Lesson
+
+<a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html" target="_blank"><img src="./assets/bitter_lesson.png" alt="Bitter lesson" style="position: absolute; top: 30%; left: 10%; width: 80%;"></a>
+
+
+---
 layout: two-cols-header
 ---
 
