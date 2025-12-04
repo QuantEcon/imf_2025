@@ -167,6 +167,13 @@ level: 2
 </div>
 
 ---
+
+# The Bitter Lesson
+
+<a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html" target="_blank"><img src="./assets/bitter_lesson.png" alt="Bitter lesson" style="position: absolute; top: 30%; left: 10%; width: 80%;"></a>
+
+
+---
 layout: two-cols-header
 ---
 
@@ -190,9 +197,3 @@ The rules of the cliff-walking game are as follows:
 ::right::
 
 <img src="./assets/cliff_walking.png" alt="Cliff walking" style="position: relative; top: -9%; left: 20%; width: 60%; z-index: 1;">
-
----
-
-Economists are starting to learn and apply these tools but there are a lot of opportunities left!
-
-Let's get started!
