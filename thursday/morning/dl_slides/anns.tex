@@ -605,7 +605,7 @@
 
 \section{Training ANNs}
 
-\begin{frame}{Training}
+\begin{frame}{Training (Plain Vanilla)}
     
     \begin{figure}
        \centering
@@ -642,27 +642,22 @@
     Suppose we wish to to predict output $y$ from input $x$
     %
     \begin{itemize}
-        \item $x \in \RR^k$
+        \item $x \in \RR^j$
         \vspace{0.5em}
-        \item $y \in \RR$  (regression problem, scalar output, for simplicity)
+        \item $y \in \RR^k$
     \end{itemize}
 
-    \Egs
+    \medskip
+    \medskip
+    \medskip
+    \medskip
+
+    \boldteal{Nonlinear regression}: Choose parametric class
+    $\{f_\theta\}_{\theta \in \Theta}$ and minimize 
     %
-    \begin{itemize}
-        \item $x = $ cross section of returns, $y = $ return on oil futures tomorrow
-        \vspace{0.5em}
-        \item $x = $ weather sensor data, $y = $ max temp tomorrow
-    \end{itemize}
-        \vspace{0.5em}
-        \vspace{0.5em}
-
-    Problem:
-
-    \begin{itemize}
-        \item observe $(x_i, y_i)_{i=1}^n$ and seek $f$ such that $y_{n+1}
-            \approx f(x_{n+1})$
-    \end{itemize}
+    \begin{equation*}
+        \ell(\theta) := \frac{1}{n}\sum_{i=1}^n \| y_i - f_\theta(x_i) \|^2
+    \end{equation*}
 
 
 \end{frame}
@@ -671,17 +666,6 @@
 
 \begin{frame}
 
-    \boldteal{Nonlinear regression}: Choose parametric class
-    $\{f_\theta\}_{\theta \in \Theta}$ and minimize 
-    %
-    \begin{equation*}
-        \ell(\theta) := \frac{1}{n}\sum_{i=1}^n (y_i - f_\theta(x_i))^2
-    \end{equation*}
-
-
-    \pause
-    \vspace{0.5em}
-    \vspace{0.5em}
     \boldteal{Deep learning}: Nonlinear regression when $\{f_\theta\}$ is a
     class of ANNs:
 
@@ -735,7 +719,7 @@
             \boldbrown{SGD}
             %
             \begin{equation*}
-                \frac{1}{|B|}\sum_{i \in B} (y_i - f_\theta(x_i))^2
+                \frac{1}{|B|}\sum_{i \in B} \|y_i - f_\theta(x_i)\|^2
             \end{equation*}
     \end{itemize}
 
@@ -748,17 +732,13 @@
 
 
     \begin{itemize}
-        \item Many variations on SGD
+        \item Variations on SGD  -- momentum terms, etc.
         \vspace{0.5em}
         \item Loss functions with regularization
         \vspace{0.5em}
         \item Cross-entropy loss (classification)
         \vspace{0.5em}
-        \item Convolutional neural networks (image processing)
-        \vspace{0.5em}
-        \item Recurrent neural networks (sequential data)
-        \vspace{0.5em}
-        \item Transformers (LLMs)
+        \item Feature mappings
         \vspace{0.5em}
         \item etc.
     \end{itemize}
@@ -789,58 +769,58 @@
     \end{figure}
 
 \end{frame}
-
-\begin{frame}
-    
-    \begin{tikzpicture}
-    \begin{axis}[
-        width=10cm,
-        height=6.6cm,
-        xlabel={model complexity},
-        ylabel={loss},
-        xmin=0, xmax=10,
-        ymin=0, ymax=1,
-        xticklabels={,,,,,,,,,,},
-        yticklabels={,,,,,},
-        ylabel near ticks,
-        xlabel near ticks,
-        legend style={at={(0.97,0.03)}, anchor=south east, draw=none, fill=white, fill opacity=0.7, text opacity=1},
-        grid=both,
-        grid style={line width=.1pt, draw=gray!10},
-        major grid style={line width=.2pt,draw=gray!50},
-        every axis plot/.append style={thick},
-        title style={font=\large},
-        domain=0:10,
-        smooth,
-    ]
-
-    % Training error curve (monotonically decreasing)
-    \addplot[color={rgb,255:red,31; green,119; blue,180}, line width=2pt, name path=training] {0.9*exp(-0.35*x) + 0.0};
-
-    % Test error curve (U-shaped)
-    \addplot[color={rgb,255:red,255; green,127; blue,14}, line width=2pt, name path=test] {0.4*exp(-0.7*x) + 0.15*exp(0.35*(x-5)) + 0.42};
-
-    % curve labels
-    \node[color={rgb,255:red,31; green,119; blue,180}, font=\small\bfseries] at (axis cs:8,0.25) {training loss};
-    \node[color={rgb,255:red,255; green,127; blue,14}, font=\small\bfseries] at (axis cs:7,0.55) {test loss};
-
-    % Underfitting and overfitting regions
-    \draw[<->, >=stealth, gray, line width=1pt] (axis cs:3.2,0.8) -- (axis cs:0.2,0.8);
-    \node[align=center, gray, font=\small\bfseries] at (axis cs:1.9, 0.9) {underfitting};
-
-    \draw[<->, >=stealth, gray, line width=1pt] (axis cs:4.3,0.8) -- (axis cs:9.8,0.8);
-    \node[align=center, gray, font=\small\bfseries] at (axis cs:6, 0.9) {overfitting};
-
-    % Fill regions
-    % \path[name path=axis] (axis cs:0,0) -- (axis cs:10,0);
-    % \addplot[blue!10, opacity=0.5] fill between[of=axis and training, soft clip={domain=0:3.2}];
-    % \addplot[red!10, opacity=0.5] fill between[of=axis and test, soft clip={domain=3.2:10}];
-    %
-    \end{axis}
-
-    \end{tikzpicture}
-
-\end{frame}
+%
+% \begin{frame}
+%     
+%     \begin{tikzpicture}
+%     \begin{axis}[
+%         width=10cm,
+%         height=6.6cm,
+%         xlabel={model complexity},
+%         ylabel={loss},
+%         xmin=0, xmax=10,
+%         ymin=0, ymax=1,
+%         xticklabels={,,,,,,,,,,},
+%         yticklabels={,,,,,},
+%         ylabel near ticks,
+%         xlabel near ticks,
+%         legend style={at={(0.97,0.03)}, anchor=south east, draw=none, fill=white, fill opacity=0.7, text opacity=1},
+%         grid=both,
+%         grid style={line width=.1pt, draw=gray!10},
+%         major grid style={line width=.2pt,draw=gray!50},
+%         every axis plot/.append style={thick},
+%         title style={font=\large},
+%         domain=0:10,
+%         smooth,
+%     ]
+%
+%     % Training error curve (monotonically decreasing)
+%     \addplot[color={rgb,255:red,31; green,119; blue,180}, line width=2pt, name path=training] {0.9*exp(-0.35*x) + 0.0};
+%
+%     % Test error curve (U-shaped)
+%     \addplot[color={rgb,255:red,255; green,127; blue,14}, line width=2pt, name path=test] {0.4*exp(-0.7*x) + 0.15*exp(0.35*(x-5)) + 0.42};
+%
+%     % curve labels
+%     \node[color={rgb,255:red,31; green,119; blue,180}, font=\small\bfseries] at (axis cs:8,0.25) {training loss};
+%     \node[color={rgb,255:red,255; green,127; blue,14}, font=\small\bfseries] at (axis cs:7,0.55) {test loss};
+%
+%     % Underfitting and overfitting regions
+%     \draw[<->, >=stealth, gray, line width=1pt] (axis cs:3.2,0.8) -- (axis cs:0.2,0.8);
+%     \node[align=center, gray, font=\small\bfseries] at (axis cs:1.9, 0.9) {underfitting};
+%
+%     \draw[<->, >=stealth, gray, line width=1pt] (axis cs:4.3,0.8) -- (axis cs:9.8,0.8);
+%     \node[align=center, gray, font=\small\bfseries] at (axis cs:6, 0.9) {overfitting};
+%
+%     % Fill regions
+%     % \path[name path=axis] (axis cs:0,0) -- (axis cs:10,0);
+%     % \addplot[blue!10, opacity=0.5] fill between[of=axis and training, soft clip={domain=0:3.2}];
+%     % \addplot[red!10, opacity=0.5] fill between[of=axis and test, soft clip={domain=3.2:10}];
+%     %
+%     \end{axis}
+%
+%     \end{tikzpicture}
+%
+% \end{frame}
 
 
 \begin{frame}
@@ -985,7 +965,7 @@
         \vspace{0.5em}
         \item Function evaluations are highly parallelizable
         \vspace{0.5em}
-        \item Flexible -- can inject inductive biases
+        \item Flexible -- universal approximators, can inject inductive bias
         \vspace{0.5em}
         \item Smooth recursive structure suited to calculating gradients
     \end{itemize}
@@ -1099,50 +1079,24 @@ def train(θ, x_data, y_data, λ=0.01, m=1_000):
 \begin{frame}
     \frametitle{JAX pytrees}
 
-    The previous code imagined $\theta$ as a list of lists
+    Actually we cheated a little bit:
 
-    In practice, we might want to use more sophisticated data structures
+    The call \texttt{θ = θ - λ * loss\_gradient(θ, x\_data, y\_data)} doesn't
+    actually work 
 
-    \begin{itemize}
-        \item a list of dictionaries?
-        \item a dictionary of dictionaries?
-        \item a list of namedtuples?
-        \item a list of classes?
-        \item a list of a dictionary of classes?
-    \end{itemize}
+    Reason: We are attempting arithmetic operations on lists of tuples of arrays, not arrays
 
-    \medskip
-    In that case, how would we implement the gradient descent routine above??
+    Because of this we need to modify the code a bit
 
-\end{frame}
-
-
-\begin{frame}
-
-    To handle these kinds of situations we can use pytrees
-    
-    \begin{itemize}
-        \item A tree-like data structure built from Python containers
-        \vspace{0.5em}
-        \item A concept, not a data type
-        \vspace{0.5em}
-        \item Used to store parameters
-    \end{itemize}
-
-    \vspace{0.5em}
-    \vspace{0.5em}
-    \Egs
+    We'll do this by using \boldteal{pytrees} --- which can work in many related settings
 
     \begin{itemize}
-        \item A list of dictionaries, each dictionary contains parameters
-        \item A dictionary of lists 
-        \item A dictionary of lists of dictionaries
+        \item a list of dictionaries
+        \item a list of a dictionary of classes
         \item etc.
     \end{itemize}
 
 \end{frame}
-
-
 
 
 \begin{frame}
