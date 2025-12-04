@@ -190,9 +190,3 @@ The rules of the cliff-walking game are as follows:
 ::right::
 
 <img src="./assets/cliff_walking.png" alt="Cliff walking" style="position: relative; top: -9%; left: 20%; width: 60%; z-index: 1;">
-
----
-
-Economists are starting to learn and apply these tools but there are a lot of opportunities left!
-
-Let's get started!
