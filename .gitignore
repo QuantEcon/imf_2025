@@ -313,3 +313,5 @@ dist
 .vite-inspect
 .remote-assets
 components.d.ts
+*.ipynb_checkpoints/
+__pycache__/
