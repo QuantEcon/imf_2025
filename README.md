@@ -72,6 +72,7 @@
   * Wednesday afternoon: Data science and Bayesian analysis
     * [Bayesian stats refresher](wednesday/afternoon/bayesian_stats.ipynb)
     * [Gaussian processes](wednesday/afternoon/gaussian_processes.ipynb)
+    * [Aiyagari with Jax/GPs](wednesday/afternoon/aiyagari_jax.ipynb)
   * Thursday morning: Introduction to deep learning
     * [Introduction to Deep Learning](thursday/morning/dl_slides/anns.pdf)
     * [Simple Neural Network Regression with Keras and JAX](https://jax.quantecon.org/keras.html)
