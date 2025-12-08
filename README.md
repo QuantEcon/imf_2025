@@ -71,7 +71,7 @@
     * [Practice time! Parts 3+4](wednesday/morning/data_practice_1.ipynb)
   * Wednesday afternoon: Data science and Bayesian analysis
     * [Bayesian stats refresher](wednesday/afternoon/bayesian_stats.ipynb)
-    * [Toy GP notebook](wednesday/afternoon/toy_gp_notebook)
+    * [Toy GP notebook](wednesday/afternoon/toy_gp_notebook.ipynb)
     * [Gaussian processes](wednesday/afternoon/intro_to_gps.ipynb)
     * [GP Kernels](wednesday/afternoon/intro_to_kernels.ipynb)
     * [Aiyagari with Jax/GPs](wednesday/afternoon/aiyagari_jax.ipynb)
